@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06110b">
+<title>Become a Host / Influencer for Brand Collaborations | BeGrow</title>
+<style>
+
+:root{--bg:#020705;--green:#e4b83d;--green2:#fff0a1;--text:#f1f8f3;--muted:#8fa197;--line:rgba(255,239,150,.16)}
+html,body{margin:0;padding:0;background:#020705;color:var(--text);font-family:Arial,sans-serif}
+body{min-height:100vh}
+a{color:inherit}
+.bg-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 75% 8%,rgba(228,184,61,.13),transparent 32%),radial-gradient(circle at 15% 45%,rgba(228,184,61,.045),transparent 35%),#020705}
+.header{height:92px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,239,150,.12);background:rgba(2,7,5,.94)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-m{width:58px;height:58px;border:1.5px solid var(--green);border-radius:18px;display:grid;place-items:center;color:var(--green);font:34px Georgia,serif}
+.logo b{display:block;font:700 22px Georgia,serif;letter-spacing:.14em}
+.logo small{display:block;color:#7f9187;font-size:9px;letter-spacing:.25em;margin-top:4px}
+.back{color:#e8f2ec;font-size:18px;text-underline-offset:5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:13px;padding:14px 18px;text-decoration:none;cursor:pointer;font-weight:900;font-size:13px}
+.btn.green{background:var(--green);color:#031108;box-shadow:0 10px 28px rgba(228,184,61,.13)}
+.btn:disabled{opacity:.55;cursor:wait}
+.footer.compact{padding:25px 20px;border-top:1px solid rgba(255,239,150,.1)}
+.footer-bottom{display:flex;justify-content:space-between;gap:15px;max-width:760px;margin:auto;color:#728178;font-size:10px}
+.snap{color:#fff0a1}
+.reveal{opacity:1!important;transform:none!important;visibility:visible!important}
+*{box-sizing:border-box}
+.apply-page{min-height:100vh}
+.apply-wrap{width:min(760px,calc(100% - 28px));margin:0 auto;padding:60px 0}
+.apply-intro{text-align:center;margin-bottom:28px}
+.kicker{display:inline-block;color:#e4b83d;font-size:11px;font-weight:800;letter-spacing:.18em}
+.apply-intro h1{margin:12px 0;font-size:clamp(30px,6vw,52px)}
+.apply-intro h1 em{color:#e4b83d;font-style:normal}
+.apply-intro p{color:#9aa9a0;line-height:1.7;font-size:13px}
+.apply-pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:18px}
+.apply-pills span{padding:8px 11px;border:1px solid rgba(255,239,150,.16);border-radius:999px;color:#b8c8bf;font-size:10px}
+.apply-form{padding:24px;border:1px solid rgba(255,239,150,.18);border-radius:24px;background:linear-gradient(145deg,rgba(12,37,24,.92),rgba(4,11,7,.96));box-shadow:0 24px 80px rgba(0,0,0,.4)}
+.apply-form label{display:block;color:#dce9e1;font-size:11px;font-weight:800;margin:0 0 16px}
+.apply-form label small{color:#7e9187;font-weight:500}
+.apply-form input,.apply-form select,.apply-form textarea{display:block;width:100%;margin-top:7px;padding:13px 14px;border-radius:12px;border:1px solid rgba(255,239,150,.14);background:#020805;color:#fff;outline:none;font:inherit;font-size:12px}
+.apply-form input:focus,.apply-form select:focus,.apply-form textarea:focus{border-color:#e4b83d;box-shadow:0 0 0 2px rgba(228,184,61,.08)}
+.apply-form input:invalid:not(:placeholder-shown),.apply-form select:invalid{border-color:#ff6b6b}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.btn.submit{width:100%;margin-top:4px}
+.form-note{text-align:center;color:#74847b;font-size:10px;line-height:1.5;margin:13px 0 0}
+.form-error{display:none;margin:0 0 15px;padding:11px 13px;border-radius:12px;background:rgba(255,70,70,.08);border:1px solid rgba(255,100,100,.2);color:#ffb3b3;font-size:11px;line-height:1.5}
+.form-error.show{display:block}
+.success-note{display:none;text-align:center;margin:18px 0;padding:16px;border-radius:16px;background:rgba(228,184,61,.07);border:1px solid rgba(255,239,150,.2);color:#fff0a1;font-size:12px}
+.success-note.show{display:block}
+@media(max-width:600px){.apply-wrap{padding:38px 0}.apply-form{padding:18px}.two{grid-template-columns:1fr}}
+/* FINAL GOLDEN THEME OVERRIDE FOR HOST APPLICATION PAGE */
+html,body{background:#020201!important;color:#f7f3e8!important}
+.bg-glow{background:radial-gradient(circle at 75% 8%,rgba(228,184,61,.12),transparent 32%),radial-gradient(circle at 15% 45%,rgba(228,184,61,.055),transparent 35%),#020201!important}
+.header{background:rgba(5,4,2,.94)!important;border-bottom-color:rgba(255,239,150,.18)!important}
+.apply-form{background:linear-gradient(145deg,rgba(39,29,10,.88),rgba(7,5,2,.97))!important;border-color:rgba(228,184,61,.28)!important;box-shadow:0 24px 80px rgba(0,0,0,.48),0 0 45px rgba(228,184,61,.06)!important}
+.apply-form input,.apply-form select,.apply-form textarea{background:#050403!important;border-color:rgba(228,184,61,.22)!important;color:#f7f3e8!important}
+.apply-form input:focus,.apply-form select:focus,.apply-form textarea:focus{border-color:#e4b83d!important;box-shadow:0 0 0 3px rgba(228,184,61,.12)!important}
+.btn.green{position:relative;overflow:hidden;background:linear-gradient(120deg,#8f6410 0%,#d5a52a 22%,#fff0a1 46%,#e4b83d 58%,#d8aa2d 76%,#8c5f0b 100%)!important;color:#241700!important;border:1px solid rgba(255,231,143,.82)!important;box-shadow:0 0 30px rgba(228,184,61,.28),inset 0 1px 0 rgba(255,255,255,.82)!important;animation:applyGoldPulse 3.4s ease-in-out infinite!important}
+.btn.green:after{content:"";position:absolute;top:-35%;left:-60%;width:28%;height:170%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);filter:blur(1px);animation:applyGoldSweep 2.8s ease-in-out infinite;pointer-events:none}
+@keyframes applyGoldSweep{0%,45%{left:-60%;opacity:0}52%{opacity:1}78%,100%{left:140%;opacity:0}}
+@keyframes applyGoldPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.08)}}
+</style>
+</head>
+<body class="apply-page">
+<div class="bg-glow"></div>
+
+<header class="header">
+  <a class="logo" href="index.html">
+    <span class="logo-m">M</span>
+    <span><b>MERLIN</b><small>AGENCY</small></span>
+  </a>
+  <a class="back" href="index.html">← Back to Website</a>
+</header>
+
+<main class="apply-wrap" style="display:block;opacity:1;visibility:visible">
+  <div class="apply-intro reveal" style="display:block;opacity:1;visibility:visible">
+    <span class="kicker">JOIN MERLIN AGENCY</span>
+    <h1>Become an <em>official BIGO LIVE host.</em></h1>
+    <p>Complete the application form below. After successful submission, WhatsApp will open directly with your application details.</p>
+    <div class="apply-pills">
+      <span>✓ BIGO ID Optional</span>
+      <span>✓ Direct WhatsApp</span>
+      <span>✓ Mobile Friendly</span>
+    </div>
+  </div>
+
+  <form id="applyForm" class="apply-form reveal" style="display:block;opacity:1;visibility:visible" novalidate>
+    <div id="formError" class="form-error" role="alert"></div>
+
+    <label>
+      Full Name
+      <input name="name" required placeholder="Your full name" autocomplete="name">
+    </label>
+
+    <div class="two">
+      <label>
+        Age
+        <input name="age" type="number" required min="18" max="100" placeholder="Your age" inputmode="numeric">
+      </label>
+
+      <label>
+        Gender
+        <select name="gender" required>
+          <option value="" selected disabled>Select gender</option>
+          <option>Female</option>
+          <option>Male</option>
+          <option>Other</option>
+        </select>
+      </label>
+    </div>
+
+    <label>
+      Instagram ID / Profile Link <small>Optional</small>
+      <input name="instagram" type="url" placeholder="https://instagram.com/yourprofile" inputmode="url">
+    </label>
+
+    <label>
+      Talent Category
+      <select name="category" required>
+        <option value="" selected disabled>Select your talent category</option>
+        <option>Influencer</option>
+        <option>Dancer</option>
+        <option>Singer</option>
+        <option>Model</option>
+        <option>Comedian</option>
+        <option>Artist</option>
+        <option>Housewife</option>
+        <option>Student</option>
+        <option>Streamer / Host</option>
+        <option>Other</option>
+      </select>
+    </label>
+
+    <label>
+      Experience
+      <select name="experience" required>
+        <option value="" selected disabled>Select your experience</option>
+        <option>New to live streaming</option>
+        <option>Beginner</option>
+        <option>Experienced Host</option>
+        <option>Professional Creator</option>
+      </select>
+    </label>
+
+    <label>
+      BIGO ID <small>Optional</small>
+      <input name="bigoId" placeholder="Your BIGO ID (optional)">
+    </label>
+
+    <button class="btn green submit" type="submit" id="submitApplication">
+      Submit Application <b>↗</b>
+    </button>
+
+    <p class="form-note">All required fields must be completed before WhatsApp can open. Instagram is optional.</p>
+  </form>
+
+  <div id="successNote" class="success-note">
+    ✓ Application prepared. Opening WhatsApp…
+  </div>
+</main>
+
+<footer class="footer compact">
+  <div class="footer-bottom">
+    <span>© 2026 Merlin Agency</span>
+    <a class="snap" href="https://www.snapchat.com/add/JoinMerlin" target="_blank" rel="noopener">👻 Snapchat · JoinMerlin</a>
+  </div>
+</footer>
+
+<script>
+const form = document.getElementById("applyForm");
+const errorBox = document.getElementById("formError");
+const successNote = document.getElementById("successNote");
+const submitButton = document.getElementById("submitApplication");
+
+const WHATSAPP_NUMBER = "918178949463";
+
+function showError(message){
+  errorBox.textContent = message;
+  errorBox.classList.add("show");
+  errorBox.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function clearError(){
+  errorBox.textContent = "";
+  errorBox.classList.remove("show");
+}
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  clearError();
+
+  // Do not allow WhatsApp to open unless every required field is valid.
+  if(!form.checkValidity()){
+    const firstInvalid = form.querySelector(":invalid");
+    showError("Please complete all required fields correctly before submitting.");
+    if(firstInvalid) firstInvalid.focus();
+    return;
+  }
+
+  const data = new FormData(form);
+  const name = data.get("name").trim();
+  const age = data.get("age").trim();
+  const gender = data.get("gender").trim();
+  const instagram = data.get("instagram").trim();
+  const category = data.get("category").trim();
+  const experience = data.get("experience").trim();
+  const bigoId = data.get("bigoId").trim() || "Not provided";
+  const instagramValue = instagram || "Not provided";
+
+  if(!name || !age || !gender || !category || !experience){
+    showError("Please complete all required fields before submitting.");
+    return;
+  }
+
+  if(Number(age) < 18 || Number(age) > 100){
+    showError("Please enter a valid age (18 or above).");
+    return;
+  }
+
+  if(instagram){
+    try{
+      new URL(instagram);
+    }catch{
+      showError("Please enter a valid Instagram profile link.");
+      return;
+    }
+  }
+
+  const message =
+`Hello Merlin Agency 👋
+
+I want to apply to join Merlin Agency.
+
+Full Name: ${name}
+Age: ${age}
+Gender: ${gender}
+Instagram: ${instagramValue}
+Talent Category: ${category}
+Experience: ${experience}
+BIGO ID: ${bigoId}
+
+Please review my application. Thank you.`;
+
+  submitButton.disabled = true;
+  submitButton.innerHTML = "Opening WhatsApp…";
+  successNote.classList.add("show");
+
+  // Open the installed WhatsApp Android app directly.
+  // Android intent keeps the browser WhatsApp page from being the primary destination.
+  const encoded = encodeURIComponent(message);
+  const whatsappLink =
+    "intent://send?phone=" + WHATSAPP_NUMBER +
+    "&text=" + encoded +
+    "#Intent;scheme=whatsapp;package=com.whatsapp;end";
+  window.location.href = whatsappLink;
+});
+</script>
+</body>
+</html>

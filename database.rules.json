@@ -1,0 +1,9 @@
+
+{
+  "rules": {
+    "paymentOrders": {
+      ".read": false,
+      ".write": false
+    }
+  }
+}

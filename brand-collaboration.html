@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070503">
+<title>Become a Host / Influencer for Brand Collaborations | BeGrow</title>
+<style>
+:root{
+  --bg:#050403;--panel:#0b0905;--panel2:#11100a;
+  --gold:#d7aa32;--gold2:#fff0a1;--gold3:#9a6b10;
+  --text:#f7f3e8;--muted:#a79f8d;--line:rgba(226,190,83,.2);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}
+body{min-height:100vh}
+a{color:inherit}
+body:before{
+  content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background:radial-gradient(circle at 75% 5%,rgba(215,170,50,.12),transparent 30%),
+             radial-gradient(circle at 15% 45%,rgba(215,170,50,.045),transparent 35%),#050403
+}
+.wrap{width:min(1120px,calc(100% - 30px));margin:auto}
+.header{
+  min-height:72px;padding:10px 22px;display:flex;align-items:center;
+  justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);
+  background:rgba(5,4,3,.92);backdrop-filter:blur(16px);position:sticky;top:0;z-index:20
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-m{width:38px;height:38px;border:1px solid var(--gold);border-radius:11px;display:grid;place-items:center;color:var(--gold2);font:22px Georgia,serif}
+.logo b{display:block;font:700 15px Georgia,serif;letter-spacing:.15em}.logo small{display:block;color:#8e866f;font-size:7px;letter-spacing:.23em;margin-top:2px}
+.back{font-size:12px;color:#ddd4bf;text-decoration:underline;text-underline-offset:4px}
+.hero{padding:32px 0 38px;text-align:center;position:relative}
+.country-wrap{display:flex;justify-content:flex-start;margin:0 0 22px}
+.country-picker{position:relative;display:inline-block;text-align:left}
+.country-btn{min-width:260px;border:1px solid rgba(255,239,150,.75);border-radius:999px;padding:15px 24px;cursor:pointer;font-weight:950;font-size:14px;color:#211500;background:linear-gradient(110deg,#9d7116,#ffe995,#c9981f,#fff0a1,#9d7116);background-size:220% 100%;box-shadow:0 8px 28px rgba(215,170,50,.22),inset 0 1px 0 rgba(255,255,255,.5);animation:goldShine 3.2s linear infinite}
+@keyframes goldShine{0%{background-position:0% 50%}100%{background-position:220% 50%}}
+.country-panel{display:none;position:absolute;left:0;top:calc(100% + 8px);width:280px;padding:12px;border:1px solid var(--line);border-radius:16px;background:rgba(10,8,5,.98);box-shadow:0 20px 60px rgba(0,0,0,.55);z-index:15}
+.country-panel.show{display:block}
+.country-panel label{margin:0;color:#e9e1cf;font-size:10px}
+.country-panel select{margin-top:6px}
+.country-hint{color:#8e8776;font-size:9px;margin-top:8px;line-height:1.4}
+@media(max-width:600px){.country-wrap{justify-content:center}.country-btn{min-width:290px;font-size:15px;padding:16px 22px}.country-panel{left:50%;transform:translateX(-50%);width:min(300px,calc(100vw - 40px))}}
+.kicker{color:var(--gold2);font-size:9px;font-weight:900;letter-spacing:.2em}
+.hero h1{font:700 clamp(38px,6vw,64px)/1 Georgia,serif;margin:13px 0}
+.hero h1 em{font-style:normal;color:var(--gold2)}
+.hero p{max-width:680px;margin:0 auto;color:var(--muted);font-size:13px;line-height:1.75}
+.profiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:18px 0 55px}
+.profile-card{
+  border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(25,21,11,.95),rgba(8,7,4,.97));
+  padding:14px;box-shadow:0 22px 70px rgba(0,0,0,.38)
+}
+.profile-media{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:12px;align-items:stretch}
+.profile-photo{height:420px;aspect-ratio:9/16;border-radius:16px;overflow:hidden;position:relative;
+  background:radial-gradient(circle at 50% 28%,rgba(255,235,155,.16),transparent 32%),linear-gradient(145deg,#1c180d,#080705);
+  display:flex;align-items:center;justify-content:center}
+.profile-photo video{width:100%;height:100%;object-fit:cover;display:block;background:#080705}
+.profile-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.profile-placeholder{font:700 38px Georgia,serif;color:var(--gold2);opacity:.7}
+.profile-side{border:1px solid var(--line);border-radius:16px;padding:16px 13px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(160deg,rgba(215,170,50,.09),rgba(5,4,3,.35));min-height:420px}
+.profile-side .side-kicker{font-size:9px;letter-spacing:.18em;color:var(--gold2);font-weight:900;line-height:1.5}
+.profile-side .side-title{font:700 24px Georgia,serif;margin:8px 0;color:#fff8e8}
+.profile-side .side-line{height:1px;background:var(--line);margin:12px 0}
+.profile-side .side-item{font-size:9px;color:#a89e86;line-height:1.55;margin:8px 0}
+.profile-side .side-item strong{display:block;color:#e9e1cf;font-size:10px}
+.profile-side .side-book{display:block;text-align:center;text-decoration:none;border-radius:11px;padding:12px 8px;font-weight:950;font-size:10px;color:#211500;background:linear-gradient(135deg,#9d7116,#ffe995,#c9981f);box-shadow:0 8px 24px rgba(215,170,50,.13)}
+.profile-meta{padding:12px 3px 2px}
+.profile-name{font:700 22px Georgia,serif;margin:0 0 5px}
+.profile-stats{color:#a89e86;font-size:10px;margin-bottom:14px}
+.code{color:var(--gold2);font-size:9px;letter-spacing:.13em;margin-bottom:13px}
+.book{
+  display:block;text-align:center;text-decoration:none;width:100%;border:0;border-radius:12px;padding:13px 16px;cursor:pointer;
+  font-weight:950;font-size:12px;color:#211500;
+  background:linear-gradient(135deg,#9d7116,#ffe995,#c9981f);
+  box-shadow:0 8px 24px rgba(215,170,50,.13)
+}
+.form-section{padding:8px 0 80px}
+.form-card{
+  max-width:820px;margin:auto;padding:25px;border:1px solid var(--line);border-radius:24px;
+  background:linear-gradient(145deg,rgba(18,15,8,.97),rgba(7,6,4,.98));
+  box-shadow:0 28px 90px rgba(0,0,0,.45)
+}
+.form-title{text-align:center;margin-bottom:22px}
+.form-title h2{font:700 34px Georgia,serif;margin:7px 0}.form-title p{color:var(--muted);font-size:11px}
+label{display:block;color:#e9e1cf;font-size:11px;font-weight:850;margin-bottom:15px}
+small{color:#8e8776;font-weight:500}
+input,select,textarea{
+  width:100%;margin-top:7px;padding:13px 14px;border-radius:12px;border:1px solid var(--line);
+  background:#050403;color:#fff;font:inherit;font-size:12px;outline:none
+}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 2px rgba(215,170,50,.08)}
+textarea{min-height:180px;resize:vertical;line-height:1.55}
+.counter{text-align:right;color:#8e8776;font-size:9px;margin-top:5px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.phone-row{display:grid;grid-template-columns:170px 1fr;gap:8px}
+.submit{
+  width:100%;border:0;border-radius:13px;padding:15px;cursor:pointer;font-weight:950;font-size:12px;
+  color:#211500;background:linear-gradient(135deg,#9d7116,#ffe995,#c9981f);box-shadow:0 10px 30px rgba(215,170,50,.14)
+}
+.note{text-align:center;color:#77705f;font-size:9px;line-height:1.55;margin-top:12px}
+.error,.success{display:none;padding:12px;border-radius:12px;margin-bottom:14px;font-size:11px}
+.error{background:rgba(255,80,80,.07);border:1px solid rgba(255,80,80,.2);color:#ffb9b9}
+.success{background:rgba(215,170,50,.08);border:1px solid var(--line);color:var(--gold2)}
+.show{display:block}
+@media(max-width:820px){.profiles{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.header{padding:10px 15px}.profiles{grid-template-columns:1fr}.profile-media{grid-template-columns:1fr}.profile-photo{height:360px}.profile-side{min-height:220px}.two,.phone-row{grid-template-columns:1fr}.form-card{padding:18px}.hero{padding-top:45px}}
+</style>
+</head>
+<body>
+<header class="header">
+  <a class="logo" href="index.html">
+    <span class="logo-m">M</span>
+    <span><b>MERLIN</b><small>AGENCY</small></span>
+  </a>
+  <a class="back" href="index.html">← Back to Website</a>
+</header>
+
+<main>
+<section class="hero wrap">
+  <div class="country-wrap">
+    <div class="country-picker">
+      <button class="country-btn" id="countryBtn" type="button">✦ Choose county Influencer ↗</button>
+      <div class="country-panel" id="countryPanel">
+        <label>Choose country
+          <select id="countrySelect" aria-label="Choose country"></select>
+        </label>
+        <div class="country-hint">Select a country to show 10 influencers from that country.</div>
+      </div>
+    </div>
+  </div>
+  <span class="kicker">MERLIN AGENCY</span>
+  <h1>Brand <em>Collaboration</em></h1>
+  <p>Choose an influencer for your recorded-content campaign and submit your business requirements.</p>
+</section>
+
+<section class="profiles wrap" id="profiles"></section>
+
+<script>
+const COUNTRIES = [
+  ["IN","India"],["US","United States"],["GB","United Kingdom"],["AE","United Arab Emirates"],["SA","Saudi Arabia"],["QA","Qatar"],["KW","Kuwait"],["OM","Oman"],["BH","Bahrain"],["PK","Pakistan"],["BD","Bangladesh"],["NP","Nepal"],["LK","Sri Lanka"],["CN","China"],["JP","Japan"],["KR","South Korea"],["SG","Singapore"],["MY","Malaysia"],["ID","Indonesia"],["TH","Thailand"],["PH","Philippines"],["VN","Vietnam"],["AU","Australia"],["NZ","New Zealand"],["CA","Canada"],["MX","Mexico"],["BR","Brazil"],["AR","Argentina"],["CL","Chile"],["CO","Colombia"],["PE","Peru"],["DE","Germany"],["FR","France"],["IT","Italy"],["ES","Spain"],["PT","Portugal"],["NL","Netherlands"],["BE","Belgium"],["CH","Switzerland"],["AT","Austria"],["SE","Sweden"],["NO","Norway"],["DK","Denmark"],["FI","Finland"],["IE","Ireland"],["IS","Iceland"],["PL","Poland"],["CZ","Czech Republic"],["SK","Slovakia"],["HU","Hungary"],["RO","Romania"],["BG","Bulgaria"],["GR","Greece"],["TR","Turkey"],["UA","Ukraine"],["RS","Serbia"],["HR","Croatia"],["SI","Slovenia"],["BA","Bosnia and Herzegovina"],["AL","Albania"],["MK","North Macedonia"],["ME","Montenegro"],["MD","Moldova"],["GE","Georgia"],["AM","Armenia"],["AZ","Azerbaijan"],["KZ","Kazakhstan"],["UZ","Uzbekistan"],["KG","Kyrgyzstan"],["TJ","Tajikistan"],["TM","Turkmenistan"],["MN","Mongolia"],["RU","Russia"],["ZA","South Africa"],["NG","Nigeria"],["KE","Kenya"],["GH","Ghana"],["EG","Egypt"],["MA","Morocco"],["DZ","Algeria"],["TN","Tunisia"],["ET","Ethiopia"],["TZ","Tanzania"],["UG","Uganda"],["RW","Rwanda"],["SN","Senegal"],["CI","Côte d'Ivoire"],["CM","Cameroon"],["CD","DR Congo"],["AO","Angola"],["ZM","Zambia"],["ZW","Zimbabwe"],["MZ","Mozambique"],["BW","Botswana"],["NA","Namibia"],["MU","Mauritius"],["SC","Seychelles"],["BR","Brazil"],["JM","Jamaica"],["TT","Trinidad and Tobago"],["BS","Bahamas"],["BB","Barbados"],["DO","Dominican Republic"],["CR","Costa Rica"],["PA","Panama"],["GT","Guatemala"],["HN","Honduras"],["SV","El Salvador"],["NI","Nicaragua"],["BO","Bolivia"],["EC","Ecuador"],["UY","Uruguay"],["PY","Paraguay"],["VE","Venezuela"],["FJ","Fiji"],["PG","Papua New Guinea"],["WS","Samoa"],["TO","Tonga"],["VU","Vanuatu"],["NC","New Caledonia"],["KH","Cambodia"],["LA","Laos"],["MM","Myanmar"],["BN","Brunei"],["TW","Taiwan"],["HK","Hong Kong"],["MO","Macao"]
+];
+const profiles=document.getElementById('profiles'), select=document.getElementById('countrySelect'), btn=document.getElementById('countryBtn'), panel=document.getElementById('countryPanel');
+COUNTRIES.forEach(([code,name])=>{const o=document.createElement('option');o.value=code;o.textContent=name;select.appendChild(o)});
+function renderCountry(code){
+  const country=COUNTRIES.find(x=>x[0]===code)?.[1]||code;
+  profiles.innerHTML='';
+  for(let i=1;i<=10;i++){
+    const num=String(i).padStart(2,'0');
+    const influencerCode=`MLN-${code}-${num}`;
+    const card=document.createElement('article'); card.className='profile-card';
+    card.innerHTML=`<div class="profile-media"><div class="profile-photo"><video src="influencers/${code}-${num}.mp4" autoplay muted loop playsinline preload="metadata"></video></div><aside class="profile-side"><div><div class="side-kicker">RECORDED CONTENT</div><div class="side-title">BOOK</div><div class="side-line"></div><div class="side-item"><strong>${country}</strong>Influencer</div><div class="side-item"><strong>Influencer</strong>Intro Video</div><div class="side-item"><strong>${influencerCode}</strong>Influencer Code</div></div><a class="side-book" href="brand-collaboration-booking.html?code=${encodeURIComponent(influencerCode)}">Book Influencer</a></aside></div><div class="profile-meta"><div class="profile-stats">${country} · Recorded Content</div><div class="code">INFLUENCER CODE: ${influencerCode}</div></div>`;
+    profiles.appendChild(card);
+  }
+}
+btn.addEventListener('click',()=>panel.classList.toggle('show'));
+select.addEventListener('change',()=>{renderCountry(select.value);panel.classList.remove('show');});
+document.addEventListener('click',e=>{if(!e.target.closest('.country-picker'))panel.classList.remove('show')});
+select.value='IN'; renderCountry('IN');
+</script>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070503">
+<title>Become a Host / Influencer for Brand Collaborations | BeGrow</title>
+<style>
+:root{--bg:#050403;--gold:#d7aa32;--gold2:#fff0a1;--pink:#e83e9a;--line:rgba(226,190,83,.2);--muted:#a79f8d}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:#f7f3e8;font-family:Inter,Arial,sans-serif}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 75% 5%,rgba(228,184,61,.12),transparent 30%),linear-gradient(180deg,#090702,#020201)}
+.header{min-height:72px;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(5,4,3,.92);position:sticky;top:0;z-index:20}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}.logo-m{width:38px;height:38px;border:1px solid var(--gold);border-radius:11px;display:grid;place-items:center;color:var(--gold2);font:22px Georgia,serif}.logo b{display:block;font:700 15px Georgia,serif;letter-spacing:.15em}.logo small{display:block;color:#8e866f;font-size:7px;letter-spacing:.23em;margin-top:2px}.back{font-size:12px;color:#ddd4bf;text-decoration:underline;text-underline-offset:4px}
+.wrap{width:min(820px,calc(100% - 30px));margin:auto}.form-section{padding:35px 0 80px}.form-card{padding:25px;border:1px solid rgba(228,184,61,.28);border-radius:24px;background:linear-gradient(145deg,rgba(39,29,10,.82),rgba(8,6,3,.97));box-shadow:0 28px 90px rgba(0,0,0,.55),0 0 55px rgba(228,184,61,.07)}
+.form-title{text-align:center;margin-bottom:22px}.kicker{color:#fff0a1;font-size:9px;font-weight:900;letter-spacing:.2em}.form-title h1{font:700 46px/1 Georgia,serif;margin:9px 0}.form-title p{color:var(--muted);font-size:11px}
+label{display:block;color:#e9e1cf;font-size:11px;font-weight:850;margin-bottom:15px}input,select,textarea{width:100%;margin-top:7px;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#050403;color:#fff;font:inherit;font-size:12px;outline:none}input:focus,select:focus,textarea:focus{border-color:#d7aa32;box-shadow:0 0 0 2px rgba(215,170,50,.08)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.phone-row{display:grid;grid-template-columns:170px 1fr;gap:8px}
+.submit{width:100%;border:1px solid rgba(255,239,154,.92);border-radius:13px;padding:15px;cursor:pointer;font-weight:950;font-size:12px;color:#241700;background:linear-gradient(135deg,#a97810 0%,#d9aa32 24%,#fff0a1 48%,#d9aa32 70%,#a97810 100%);box-shadow:0 10px 30px rgba(215,170,50,.28),inset 0 1px 0 rgba(255,255,255,.5);position:relative;overflow:hidden}.submit:before{content:"";position:absolute;top:-30%;left:-45%;width:35%;height:160%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.78),transparent);animation:submitGoldShine 3s ease-in-out infinite}.submit{isolation:isolate}.submit::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 18px rgba(255,220,95,.18);pointer-events:none}@keyframes submitGoldShine{0%{left:-45%}55%,100%{left:120%}}
+.error,.success{display:none;padding:12px;border-radius:12px;margin-bottom:14px;font-size:11px}.error{background:rgba(255,80,80,.07);border:1px solid rgba(255,80,80,.2);color:#ffb9b9}.success{background:rgba(228,184,61,.08);border:1px solid rgba(228,184,61,.25);color:#fff0a1}.show{display:block}
+@media(max-width:600px){.header{padding:10px 15px}.form-card{padding:18px}.form-title h1{font-size:40px}.two,.phone-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="header">
+<a class="logo" href="index.html"><span class="logo-m">M</span><span><b>MERLIN</b><small>AGENCY</small></span></a>
+<a class="back" href="index.html">← Back to Website</a>
+</header>
+<main><section class="form-section wrap"><div class="form-card">
+<div class="form-title"><span class="kicker">CREATOR APPLICATION</span><h1>Join as Influencer</h1><p>Submit your details to register as a Merlin Agency influencer.</p></div>
+<div id="error" class="error"></div><div id="success" class="success">✓ Application prepared. Opening WhatsApp…</div>
+<form id="applyForm" novalidate>
+<div class="two">
+<label>Full Name<input name="name" required placeholder="Your full name"></label>
+<label>Age<input name="age" type="number" min="18" required placeholder="Your age"></label>
+</div>
+<label>Influencer Country<select name="influencerCountry" id="influencerCountry" required><option value="" selected disabled>Select your country</option></select></label>
+<div class="two">
+<label>Email Address<input name="email" type="email" required placeholder="you@example.com"></label>
+<label>WhatsApp Number<div class="phone-row"><select name="countryCode" id="countryCode" required></select><input name="phone" required placeholder="WhatsApp number" inputmode="tel"></div></label>
+</div>
+<label>Instagram ID<input name="instagram" required placeholder="@yourusername"></label>
+<label>Instagram Followers<select name="followers" required><option value="" selected disabled>Select follower range</option><option>1K – 5K</option><option>5K – 10K</option><option>10K – 25K</option><option>25K – 50K</option><option>50K – 100K</option><option>100K – 500K</option><option>500K+</option></select></label>
+<label>Content Category<select name="category" required><option value="" selected disabled>Select category</option><option>Fashion & Beauty</option><option>Lifestyle</option><option>Entertainment</option><option>Food</option><option>Travel</option><option>Fitness</option><option>Gaming</option><option>Tech</option><option>Education</option><option>Other</option></select></label>
+<label>Influencer Intro Video (10 Seconds • Google Drive Link)<input name="introVideo" type="url" required placeholder="Paste your 10-second Google Drive video link" autocomplete="url"><small style="display:block;margin-top:6px;color:#a79f8d;font-size:9px;font-weight:600">Upload a 10-second influencer intro video and make sure the Google Drive link is accessible for viewing.</small></label>
+<label>About You / Content Details<textarea name="about" maxlength="500" required placeholder="Tell us briefly about your content and audience."></textarea></label>
+<button class="submit" type="submit">Join as Influencer ↗</button>
+</form></div></section></main>
+<script>
+const WHATSAPP_NUMBER="918178949463",codes=[["+91","India"],["+1","United States / Canada"],["+44","United Kingdom"],["+971","United Arab Emirates"],["+966","Saudi Arabia"],["+974","Qatar"],["+965","Kuwait"],["+968","Oman"],["+973","Bahrain"],["+92","Pakistan"],["+880","Bangladesh"],["+977","Nepal"],["+94","Sri Lanka"],["+86","China"],["+81","Japan"],["+82","South Korea"],["+65","Singapore"],["+60","Malaysia"],["+62","Indonesia"],["+66","Thailand"],["+61","Australia"],["+64","New Zealand"],["+49","Germany"],["+33","France"],["+39","Italy"],["+34","Spain"],["+31","Netherlands"],["+32","Belgium"],["+41","Switzerland"],["+43","Austria"],["+46","Sweden"],["+47","Norway"],["+7","Russia / Kazakhstan"],["+90","Turkey"],["+27","South Africa"],["+20","Egypt"],["+234","Nigeria"],["+254","Kenya"],["+55","Brazil"],["+52","Mexico"],["+54","Argentina"],["+56","Chile"]];
+const cs=document.getElementById("countryCode");codes.forEach(([c,n])=>{let o=document.createElement("option");o.value=c;o.textContent=c+" — "+n;if(c==="+91")o.selected=true;cs.appendChild(o)});
+const INFLUENCER_COUNTRIES = [
+["IN","India"],["US","United States"],["GB","United Kingdom"],["AE","United Arab Emirates"],["SA","Saudi Arabia"],["QA","Qatar"],["KW","Kuwait"],["OM","Oman"],["BH","Bahrain"],["PK","Pakistan"],["BD","Bangladesh"],["NP","Nepal"],["LK","Sri Lanka"],["CN","China"],["JP","Japan"],["KR","South Korea"],["SG","Singapore"],["MY","Malaysia"],["ID","Indonesia"],["TH","Thailand"],["PH","Philippines"],["VN","Vietnam"],["AU","Australia"],["NZ","New Zealand"],["CA","Canada"],["MX","Mexico"],["BR","Brazil"],["AR","Argentina"],["CL","Chile"],["CO","Colombia"],["PE","Peru"],["DE","Germany"],["FR","France"],["IT","Italy"],["ES","Spain"],["PT","Portugal"],["NL","Netherlands"],["BE","Belgium"],["CH","Switzerland"],["AT","Austria"],["SE","Sweden"],["NO","Norway"],["DK","Denmark"],["FI","Finland"],["IE","Ireland"],["IS","Iceland"],["PL","Poland"],["CZ","Czech Republic"],["SK","Slovakia"],["HU","Hungary"],["RO","Romania"],["BG","Bulgaria"],["GR","Greece"],["TR","Turkey"],["UA","Ukraine"],["RS","Serbia"],["HR","Croatia"],["SI","Slovenia"],["BA","Bosnia and Herzegovina"],["AL","Albania"],["MK","North Macedonia"],["ME","Montenegro"],["MD","Moldova"],["GE","Georgia"],["AM","Armenia"],["AZ","Azerbaijan"],["KZ","Kazakhstan"],["UZ","Uzbekistan"],["KG","Kyrgyzstan"],["TJ","Tajikistan"],["TM","Turkmenistan"],["MN","Mongolia"],["RU","Russia"],["ZA","South Africa"],["NG","Nigeria"],["KE","Kenya"],["GH","Ghana"],["EG","Egypt"],["MA","Morocco"],["DZ","Algeria"],["TN","Tunisia"],["ET","Ethiopia"],["TZ","Tanzania"],["UG","Uganda"],["RW","Rwanda"],["SN","Senegal"],["CI","Côte d'Ivoire"],["CM","Cameroon"],["CD","DR Congo"],["AO","Angola"],["ZM","Zambia"],["ZW","Zimbabwe"],["MZ","Mozambique"],["BW","Botswana"],["NA","Namibia"],["MU","Mauritius"],["SC","Seychelles"],["JM","Jamaica"],["TT","Trinidad and Tobago"],["BS","Bahamas"],["BB","Barbados"],["DO","Dominican Republic"],["CR","Costa Rica"],["PA","Panama"],["GT","Guatemala"],["HN","Honduras"],["SV","El Salvador"],["NI","Nicaragua"],["BO","Bolivia"],["EC","Ecuador"],["UY","Uruguay"],["PY","Paraguay"],["VE","Venezuela"],["FJ","Fiji"],["PG","Papua New Guinea"],["WS","Samoa"],["TO","Tonga"],["VU","Vanuatu"],["KH","Cambodia"],["LA","Laos"],["MM","Myanmar"],["BN","Brunei"],["TW","Taiwan"],["HK","Hong Kong"],["MO","Macao"]
+];
+const influencerCountrySelect=document.getElementById("influencerCountry");
+INFLUENCER_COUNTRIES.forEach(([code,name])=>{const o=document.createElement("option");o.value=code;o.textContent=name;influencerCountrySelect.appendChild(o)});
+document.getElementById("applyForm").addEventListener("submit",e=>{e.preventDefault();let f=e.currentTarget,err=document.getElementById("error");err.classList.remove("show");if(!f.checkValidity()){err.textContent="Please complete all required fields correctly.";err.classList.add("show");f.querySelector(":invalid")?.focus();return}let x=new FormData(f);let msg=`Hello Merlin Agency 👋
+
+I want to apply as an influencer.
+
+Full Name: ${x.get("name")}
+Age: ${x.get("age")}
+Country: ${INFLUENCER_COUNTRIES.find(([code])=>code===x.get("influencerCountry"))?.[1]||x.get("influencerCountry")}
+Email: ${x.get("email")}
+WhatsApp: ${x.get("countryCode")} ${x.get("phone")}
+Instagram ID: ${x.get("instagram")}
+Instagram Followers: ${x.get("followers")}
+Content Category: ${x.get("category")}
+Influencer Intro Video (10 Seconds • Google Drive): ${x.get("introVideo")}
+About / Content Details:
+${x.get("about")}
+
+Please review my influencer application. Thank you.`;document.getElementById("success").classList.add("show");location.href="intent://send?phone="+WHATSAPP_NUMBER+"&text="+encodeURIComponent(msg)+"#Intent;scheme=whatsapp;package=com.whatsapp;end"});
+</script>
+</body></html>

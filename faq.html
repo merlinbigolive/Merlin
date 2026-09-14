@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#020705">
+<title>Become a Host / Influencer for Brand Collaborations | BeGrow</title>
+<style>
+:root{--bg:#020705;--green:#e4b83d;--text:#f1f8f3;--muted:#8fa197;--line:rgba(255,239,150,.15)}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+body{background:radial-gradient(circle at 80% 5%,rgba(228,184,61,.11),transparent 35%),#020705}
+.wrap{width:min(760px,calc(100% - 32px));margin:auto;padding:70px 0 45px}
+.kicker{text-align:center;color:var(--green);font-size:11px;font-weight:800;letter-spacing:.2em}
+h1{text-align:center;font:700 clamp(42px,10vw,70px)/.95 Georgia,serif;margin:18px 0 55px}
+h1 span{color:var(--green)}
+.faq{border-top:1px solid var(--line)}
+.item{border-bottom:1px solid var(--line)}
+.question{width:100%;padding:27px 8px;background:none;border:0;color:#f0f6f2;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:18px;font-size:18px;font-weight:800;cursor:pointer}
+.plus{color:var(--green);font-size:30px;font-weight:300;line-height:1;transition:.2s}
+.answer{display:none;padding:0 48px 26px 8px;color:#9eafa5;font-size:14px;line-height:1.75}
+.item.open .answer{display:block}.item.open .plus{transform:rotate(45deg)}
+.footer{margin-top:70px;padding-top:25px;border-top:1px solid var(--line);color:#687970;font-size:10px}
+@media(max-width:500px){.wrap{padding-top:45px}.question{font-size:16px;padding:23px 5px}.answer{padding-right:10px;font-size:13px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<div class="kicker">FAQ</div>
+<h1>Questions,<br><span>answered.</span></h1>
+
+<section class="faq">
+
+<div class="item">
+<button class="question" type="button">Do I need previous hosting experience?<span class="plus">+</span></button>
+<div class="answer">No. Beginners are welcome to apply. Training, guidance, and support can be provided to help you get started.</div>
+</div>
+
+<div class="item">
+<button class="question" type="button">How will I withdraw my income?<span class="plus">+</span></button>
+<div class="answer">You can withdraw your earnings directly from your wallet according to the available withdrawal options.</div>
+</div>
+
+<div class="item">
+<button class="question" type="button">How many hours do I need to be live every day?<span class="plus">+</span></button>
+<div class="answer">The required live hours may vary depending on your target and hosting schedule. Your agency team will guide you regarding the expected daily live hours.</div>
+</div>
+
+<div class="item">
+<button class="question" type="button">Is there any joining fee?<span class="plus">+</span></button>
+<div class="answer">No. There is no joining fee. You can apply and join Merlin Agency without paying any joining charges.</div>
+</div>
+
+<div class="item">
+<button class="question" type="button">What do I need to do while I'm live?<span class="plus">+</span></button>
+<div class="answer">While you're live, you can play PKs, interact and chat with your viewers, reply to comments, entertain your audience, and keep the live session engaging and active.</div>
+</div>
+
+</section>
+
+<footer class="footer">© 2026 Merlin Agency · Official BIGO LIVE host recruitment</footer>
+</main>
+
+<script>
+document.querySelectorAll(".question").forEach(button=>{
+  button.addEventListener("click",()=>{
+    const item=button.parentElement;
+    document.querySelectorAll(".item").forEach(other=>{
+      if(other!==item) other.classList.remove("open");
+    });
+    item.classList.toggle("open");
+  });
+});
+</script>
+</body>
+</html>

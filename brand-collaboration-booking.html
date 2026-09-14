@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Become a Host / Influencer for Brand Collaborations | BeGrow</title>
+<style>
+:root{--bg:#050403;--gold:#d7aa32;--gold2:#fff0a1;--line:rgba(226,190,83,.2);--muted:#a79f8d}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:#f7f3e8;font-family:Inter,Arial,sans-serif}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 75% 5%,rgba(215,170,50,.12),transparent 30%),#050403}
+.header{min-height:72px;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(5,4,3,.92);position:sticky;top:0;z-index:20}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}.logo-m{width:38px;height:38px;border:1px solid var(--gold);border-radius:11px;display:grid;place-items:center;color:var(--gold2);font:22px Georgia,serif}.logo b{display:block;font:700 15px Georgia,serif;letter-spacing:.15em}.logo small{display:block;color:#8e866f;font-size:7px;letter-spacing:.23em;margin-top:2px}.back{font-size:12px;color:#ddd4bf;text-decoration:underline;text-underline-offset:4px}
+.wrap{width:min(820px,calc(100% - 30px));margin:auto}.form-section{padding:35px 0 80px}.form-card{padding:25px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(18,15,8,.97),rgba(7,6,4,.98));box-shadow:0 28px 90px rgba(0,0,0,.45)}
+.form-title{text-align:center;margin-bottom:22px}.kicker{color:var(--gold2);font-size:9px;font-weight:900;letter-spacing:.2em}.form-title h1{font:700 46px/1 Georgia,serif;margin:9px 0}.form-title p{color:var(--muted);font-size:11px}
+label{display:block;color:#e9e1cf;font-size:11px;font-weight:850;margin-bottom:15px}input,select,textarea{width:100%;margin-top:7px;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#050403;color:#fff;font:inherit;font-size:12px;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 2px rgba(215,170,50,.08)}textarea{min-height:180px;resize:vertical;line-height:1.55}.counter{text-align:right;color:#8e8776;font-size:9px;margin-top:5px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.phone-row{display:grid;grid-template-columns:170px 1fr;gap:8px}.submit{width:100%;border:0;border-radius:13px;padding:15px;cursor:pointer;font-weight:950;font-size:12px;color:#211500;background:linear-gradient(135deg,#9d7116,#ffe995,#c9981f);box-shadow:0 10px 30px rgba(215,170,50,.14)}.policy{margin-top:14px;padding:14px 15px;border:1px solid rgba(255,230,130,.26);border-radius:14px;background:linear-gradient(145deg,rgba(39,29,10,.72),rgba(12,9,4,.92));display:flex;gap:10px;align-items:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 8px 24px rgba(215,170,50,.05)}.policy input{width:19px;height:19px;min-width:19px;margin:0;accent-color:var(--gold);cursor:pointer}.policy label{margin:0;color:#f0e7d0;font-size:11px;line-height:1.4;font-weight:850;cursor:pointer;flex:1}.policy strong{color:var(--gold2)}.policy-btn{margin-left:auto;border:1px solid rgba(255,240,161,.58);border-radius:10px;padding:10px 13px;background:linear-gradient(135deg,#9d7116,#ffe995,#c9981f);color:#211500;font:850 10px/1 Inter,Arial,sans-serif;cursor:pointer;white-space:nowrap;box-shadow:0 6px 18px rgba(215,170,50,.16);position:relative;overflow:hidden}.policy-btn:after{content:"";position:absolute;top:-30%;left:-55%;width:28%;height:160%;transform:skewX(-20deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);animation:policyShine 3.2s ease-in-out infinite}@keyframes policyShine{0%,55%{left:-55%;opacity:0}62%{opacity:1}82%,100%{left:135%;opacity:0}}.policy-full{display:none;margin-top:9px;padding:16px 15px;border:1px solid rgba(255,230,130,.22);border-radius:14px;background:linear-gradient(145deg,rgba(35,26,9,.72),rgba(8,6,3,.96));color:#e5dcc9;font-size:12px;line-height:1.65}.policy-full.show{display:block}.policy-full strong{color:var(--gold2)}@media(max-width:600px){.policy-btn{padding:9px 10px;font-size:9px}.policy label{font-size:10px}}.error,.success{display:none;padding:12px;border-radius:12px;margin-bottom:14px;font-size:11px}.error{background:rgba(255,80,80,.07);border:1px solid rgba(255,80,80,.2);color:#ffb9b9}.success{background:rgba(215,170,50,.08);border:1px solid var(--line);color:var(--gold2)}.show{display:block}@media(max-width:600px){.header{padding:10px 15px}.form-card{padding:18px}.form-title h1{font-size:40px}.two,.phone-row{grid-template-columns:1fr}}
+</style></head><body>
+<header class="header"><a class="logo" href="index.html"><span class="logo-m">M</span><span><b>MERLIN</b><small>AGENCY</small></span></a><a class="back" href="brand-collaboration.html">← Back to Influencers</a></header>
+<main><section class="form-section wrap"><div class="form-card">
+<div class="form-title"><span class="kicker">CAMPAIGN REQUEST</span><h1>Book an Influencer</h1><p>Submit your business and recorded-content requirements.</p></div>
+<div id="error" class="error"></div><div id="success" class="success">✓ Collaboration request prepared. Opening WhatsApp…</div>
+<form id="collabForm" novalidate>
+<label>Influencer Code<input name="influencerCode" id="influencerCode" readonly required></label>
+<div class="two"><label>Client / Contact Person<input name="client" required placeholder="Your name"></label><label>Client Country<select name="clientCountry" id="clientCountry" required><option value="" selected disabled>Select country</option></select></label></div>
+<label>Brand Name<input name="brand" required placeholder="Brand / company name"></label>
+<div class="two"><label>Email Address<input name="email" type="email" required placeholder="you@company.com"></label><label>WhatsApp Number<div class="phone-row"><select name="countryCode" id="countryCode" required></select><input name="phone" required placeholder="WhatsApp number" inputmode="tel"></div></label></div>
+<label>Promotion Type<select name="promotionType" required><option value="" selected disabled>Select promotion type</option><option>Instagram Reel</option><option>Instagram Video</option><option>YouTube Video</option><option>Product / Brand Review Video</option><option>Sponsored Video</option><option>Short-form Video</option><option>Multiple Recorded Videos</option><option>Custom Recorded Content</option></select></label>
+<label>What promotion do you want?<textarea name="promotionDetails" id="promotionDetails" required maxlength="500" placeholder="Describe the product/service, key points to mention, required messaging, deliverables, references, etc. (maximum 500 characters)"></textarea><div class="counter"><span id="count">0</span>/500</div></label>
+<div class="two"><label>Number of Videos<select name="videoCount" required><option value="" selected disabled>Select quantity</option><option>1 Video</option><option>2 Videos</option><option>3 Videos</option><option>4 Videos</option><option>5 Videos</option><option>6–10 Videos</option><option>10+ Videos</option><option>Custom Quantity</option></select></label><label>Campaign Duration<select name="duration" required><option value="" selected disabled>Select duration</option><option>1–7 Days</option><option>8–15 Days</option><option>16–30 Days</option><option>1–3 Months</option><option>3+ Months</option><option>Custom</option></select></label></div>
+<label>Video Duration
+<select name="videoDuration" required>
+<option value="" selected disabled>Select video duration</option>
+<option>10 seconds</option>
+<option>15 seconds</option>
+<option>20 seconds</option>
+<option>30 seconds</option>
+<option>35 seconds</option>
+<option>40 seconds</option>
+<option>45 seconds</option>
+<option>50 seconds</option>
+<option>55 seconds</option>
+<option>60 seconds</option>
+</select>
+</label>
+<label>Budget<select name="budget" id="budget" required><option value="" selected disabled>Select budget range</option><option>₹5,000 – ₹10,000</option><option>₹10,000 – ₹20,000</option><option>₹20,000 – ₹50,000</option><option>₹50,000 – ₹2,00,000</option><option>Custom Budget</option></select></label>
+<label id="customBudgetWrap" style="display:none">Custom Budget<input name="customBudget" id="customBudget" placeholder="Enter your budget"></label>
+<button class="submit" type="submit">Submit Collaboration Request ↗</button><div class="policy"><input id="policyCheck" name="policyAccepted" value="Yes" type="checkbox" required><label for="policyCheck"><strong>Collaboration Policy</strong></label><button class="policy-btn" id="policyToggle" type="button">View Policy</button></div><div class="policy-full" id="policyFull"><strong>Collaboration Policy</strong><br><br>I confirm that the payment and required product for the brand collaboration will be delivered, after that the selected influencer will create and submit the brand collaboration video within 2 to 5 days, subject to the campaign brief and product availability.<br><br>Any additional changes, revisions, or reshoots requested after submission may require additional time and may be subject to an additional charge.</div></form></div></section></main>
+<script>
+const WHATSAPP_NUMBER="918178949463",codes=[["+91","India"],["+1","United States / Canada"],["+44","United Kingdom"],["+971","United Arab Emirates"],["+966","Saudi Arabia"],["+974","Qatar"],["+965","Kuwait"],["+968","Oman"],["+973","Bahrain"],["+92","Pakistan"],["+880","Bangladesh"],["+977","Nepal"],["+94","Sri Lanka"],["+86","China"],["+81","Japan"],["+82","South Korea"],["+65","Singapore"],["+60","Malaysia"],["+62","Indonesia"],["+66","Thailand"],["+61","Australia"],["+64","New Zealand"],["+49","Germany"],["+33","France"],["+39","Italy"],["+34","Spain"],["+31","Netherlands"],["+32","Belgium"],["+41","Switzerland"],["+43","Austria"],["+46","Sweden"],["+47","Norway"],["+7","Russia / Kazakhstan"],["+90","Turkey"],["+27","South Africa"],["+20","Egypt"],["+234","Nigeria"],["+254","Kenya"],["+55","Brazil"],["+52","Mexico"],["+54","Argentina"],["+56","Chile"]];
+const cs=document.getElementById("countryCode");codes.forEach(([c,n])=>{let o=document.createElement("option");o.value=c;o.textContent=c+" — "+n;if(c==="+91")o.selected=true;cs.appendChild(o)});
+const countries=["Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo (Republic of the)","Costa Rica","Croatia","Cuba","Cyprus","Czechia","Democratic Republic of the Congo","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"];
+const cc=document.getElementById("clientCountry");countries.forEach(n=>{let o=document.createElement("option");o.value=n;o.textContent=n;if(n==="India")o.selected=true;cc.appendChild(o)});
+document.getElementById("influencerCode").value=new URLSearchParams(location.search).get("code")||"";
+const d=document.getElementById("promotionDetails"),ct=document.getElementById("count");d.addEventListener("input",()=>ct.textContent=d.value.length);
+const policyToggle=document.getElementById("policyToggle"),policyFull=document.getElementById("policyFull");policyToggle.addEventListener("click",()=>{let open=policyFull.classList.toggle("show");policyToggle.textContent=open?"Hide Policy":"View Policy"});
+const b=document.getElementById("budget"),cw=document.getElementById("customBudgetWrap"),cb=document.getElementById("customBudget");b.addEventListener("change",()=>{let x=b.value==="Custom Budget";cw.style.display=x?"block":"none";cb.required=x});
+document.getElementById("collabForm").addEventListener("submit",e=>{e.preventDefault();let f=e.currentTarget,err=document.getElementById("error");err.classList.remove("show");if(!f.checkValidity()){err.textContent="Please complete all required fields correctly.";err.classList.add("show");f.querySelector(":invalid")?.focus();return}let x=new FormData(f),budget=x.get("budget")==="Custom Budget"?x.get("customBudget"):x.get("budget");let msg=`Hello Merlin Agency 👋
+
+I want to submit a Brand Collaboration request.
+
+Influencer Code: ${x.get("influencerCode")}
+Client / Contact Person: ${x.get("client")}
+Client Country: ${x.get("clientCountry")}
+Brand Name: ${x.get("brand")}
+Email: ${x.get("email")}
+WhatsApp: ${x.get("countryCode")} ${x.get("phone")}
+
+Promotion Type: ${x.get("promotionType")}
+What promotion do you want:
+${x.get("promotionDetails")}
+
+Number of Videos: ${x.get("videoCount")}
+Video Duration: ${x.get("videoDuration")}
+Campaign Duration: ${x.get("duration")}
+Budget: ${budget}
+
+Collaboration Policy Accepted: ${x.get("policyAccepted")==="Yes" ? "Yes" : "No"}
+
+Please review this collaboration request. Thank you.`;document.getElementById("success").classList.add("show");location.href="intent://send?phone="+WHATSAPP_NUMBER+"&text="+encodeURIComponent(msg)+"#Intent;scheme=whatsapp;package=com.whatsapp;end"});
+</script></body></html>
