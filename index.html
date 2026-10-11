@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#030406">
+  <title>MERLIN AGENCY | Become an Official Host</title>
+  <meta name="description" content="Join Merlin Agency as an official host. Work from home, enjoy flexible timings, and apply with no joining fee.">
+  <style>
+    :root {
+      --black: #030406;
+      --silver: #edf2f8;
+      --gold: #d9ad51;
+      --blue: #0757df;
+      --blue2: #1478ff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--black);
+      color: white;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+    }
+    button, a { font: inherit; }
+    .site-header {
+      position: relative;
+      z-index: 10;
+      height: 106px;
+      padding: 12px clamp(18px, 5vw, 76px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #030303;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      text-decoration: none;
+      line-height: .88;
+      width: fit-content;
+    }
+    .brand-main {
+      font-family: "Arial Black", Impact, sans-serif;
+      font-style: italic;
+      font-weight: 900;
+      font-size: clamp(34px, 5.3vw, 59px);
+      letter-spacing: -2.7px;
+      transform: skewX(-7deg);
+      color: #f5f7fb;
+      background: linear-gradient(180deg, #ffffff 3%, #aab2bd 28%, #ffffff 43%, #7a828d 57%, #f8fbff 76%, #a7afb8 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 1px 0 #525965);
+      position: relative;
+    }
+    .brand-main::after {
+      content: "";
+      position: absolute;
+      width: 27%;
+      height: 2px;
+      left: 2%;
+      top: 13%;
+      background: #fff4c8;
+      box-shadow: 0 0 8px 2px rgba(255,196,79,.75);
+      transform: rotate(-13deg);
+      opacity: .9;
+    }
+    .brand-sub {
+      margin-top: 7px;
+      text-align: center;
+      color: var(--gold);
+      font-family: "Arial Black", Arial, sans-serif;
+      font-weight: 800;
+      letter-spacing: clamp(5px, 1.15vw, 10px);
+      font-size: clamp(11px, 1.7vw, 18px);
+      padding-left: 8px;
+      text-shadow: 0 0 12px rgba(222,174,75,.22);
+    }
+    .menu-button {
+      width: 48px;
+      height: 44px;
+      border: 0;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 7px;
+      align-items: center;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .menu-button span {
+      width: 35px;
+      height: 4px;
+      background: #f6f7fa;
+      border-radius: 1px;
+      transition: transform .25s, opacity .25s;
+    }
+    .menu-button[aria-expanded="true"] span:first-child { transform: translateY(11px) rotate(45deg); }
+    .menu-button[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .menu-button[aria-expanded="true"] span:last-child { transform: translateY(-11px) rotate(-45deg); }
+    .menu-panel {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: clamp(14px, 4vw, 60px);
+      min-width: 210px;
+      padding: 10px;
+      background: #090c12;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 10px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.45);
+    }
+    .menu-panel.open { display: grid; }
+    .menu-panel a {
+      color: #f5f6f8;
+      text-decoration: none;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .menu-panel a:hover { background: #102e63; }
+    .ticker {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: linear-gradient(100deg, #0643bd, #0869ff 52%, #0644bb);
+      border-bottom: 1px solid rgba(255,255,255,.16);
+      white-space: nowrap;
+    }
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      align-items: center;
+      animation: ticker 27s linear infinite;
+    }
+    .ticker:hover .ticker-track { animation-play-state: paused; }
+    .ticker-copy {
+      flex: none;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      padding-right: 22px;
+      font-weight: 800;
+      font-size: clamp(12px, 1.45vw, 18px);
+      letter-spacing: .25px;
+    }
+    .ticker-copy b { font-size: 19px; color: #fff; }
+    @keyframes ticker { to { transform: translateX(-50%); } }
+
+    .hero {
+      min-height: min(740px, calc(100svh - 154px));
+      min-height: max(570px, min(740px, calc(100svh - 154px)));
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: #061020;
+    }
+    .slides, .slide, .hero-video, .hero-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .slides { z-index: -3; background: #061020; }
+    .slide {
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      background-size: cover;
+      background-position: center;
+    }
+    .slide.active { opacity: 1; }
+    video.hero-video {
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      background: #061020;
+    }
+    video.hero-video.active { opacity: 1; }
+    .slide.gala-one {
+      background-image:
+        radial-gradient(ellipse at 50% 34%, rgba(255,197,88,.42), transparent 18%),
+        radial-gradient(ellipse at 50% 75%, rgba(17,94,210,.5), transparent 43%),
+        linear-gradient(115deg, rgba(3,8,24,.1), rgba(3,8,24,.2)),
+        url("https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=2000&q=85");
+    }
+    .slide.gala-two {
+      background-image:
+        radial-gradient(ellipse at 50% 30%, rgba(232,184,88,.28), transparent 22%),
+        linear-gradient(90deg, rgba(2,6,17,.25), rgba(2,6,17,.05)),
+        url("https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=2000&q=85");
+    }
+    .slide.gala-three {
+      background-image:
+        radial-gradient(ellipse at 50% 35%, rgba(26,118,255,.28), transparent 28%),
+        linear-gradient(0deg, rgba(1,5,15,.25), rgba(1,5,15,.05)),
+        url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2000&q=85");
+    }
+    .hero-shade {
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(2,5,13,.76), rgba(2,5,13,.42) 50%, rgba(2,5,13,.72)),
+        linear-gradient(0deg, rgba(2,5,13,.7), transparent 52%, rgba(2,5,13,.24));
+    }
+    .hero-content {
+      width: min(100% - 32px, 920px);
+      text-align: center;
+      padding: 60px 0 72px;
+      animation: rise .9s ease both;
+    }
+    @keyframes rise { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 15px;
+      border: 1px solid rgba(222,177,89,.65);
+      background: rgba(5,10,20,.42);
+      color: #f3d28d;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 2.3px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 23px;
+    }
+    .eyebrow::before { content: "✦"; font-size: 13px; }
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(43px, 8.3vw, 92px);
+      line-height: .94;
+      letter-spacing: -2.8px;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 0 4px 30px rgba(0,0,0,.5);
+    }
+    .hero h1 span {
+      display: block;
+      margin-top: 10px;
+      color: #f0c96f;
+      background: linear-gradient(100deg, #fff2c4 0%, #d8a644 28%, #fff1bd 50%, #c18a28 74%, #ffe9a4 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 16px rgba(214,166,64,.18));
+    }
+    .hero-brandline {
+      margin: 26px 0 0;
+      color: #f8f9fb;
+      font-size: clamp(16px, 2.2vw, 23px);
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+    .hero-description {
+      margin: 13px auto 0;
+      max-width: 640px;
+      color: rgba(246,248,252,.86);
+      line-height: 1.7;
+      font-size: clamp(13px, 1.7vw, 17px);
+    }
+    .join-button {
+      margin-top: 31px;
+      min-width: 208px;
+      min-height: 57px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 16px 27px;
+      color: #11100c;
+      background: linear-gradient(115deg, #f9e6a7, #c08b2e 34%, #ffe8a0 58%, #c08b2e 100%);
+      border: 1px solid #ffe6a0;
+      border-radius: 7px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1.15px;
+      font-weight: 900;
+      box-shadow: 0 0 28px rgba(218,168,62,.24), inset 0 1px 0 rgba(255,255,255,.75);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .join-button:hover { transform: translateY(-3px); box-shadow: 0 0 36px rgba(218,168,62,.42); }
+    .join-button span { font-size: 18px; }
+    .slide-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+    }
+    .slide-dot {
+      width: 8px;
+      height: 8px;
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: 50%;
+      padding: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+    .slide-dot.active { width: 24px; border-radius: 8px; background: #e6bc61; border-color: #e6bc61; }
+    .slide-note {
+      position: absolute;
+      bottom: 17px;
+      right: 22px;
+      color: rgba(255,255,255,.66);
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    @media (max-width: 600px) {
+      .site-header { height: 83px; padding: 10px 17px; }
+      .brand-main { font-size: 35px; letter-spacing: -1.7px; }
+      .brand-sub { font-size: 10px; letter-spacing: 5.2px; margin-top: 6px; padding-left: 5px; }
+      .menu-button { width: 42px; }
+      .menu-button span { width: 29px; height: 3px; }
+      .ticker { height: 39px; }
+      .ticker-copy { gap: 13px; padding-right: 13px; font-size: 11px; }
+      .ticker-copy b { font-size: 14px; }
+      .hero { min-height: max(570px, calc(100svh - 122px)); }
+      .hero-content { padding: 48px 0 70px; }
+      .eyebrow { font-size: 9px; letter-spacing: 1.5px; margin-bottom: 22px; }
+      .hero h1 { letter-spacing: -1.5px; }
+      .hero-brandline { margin-top: 22px; }
+      .hero-description { max-width: 330px; }
+      .join-button { margin-top: 25px; min-height: 53px; min-width: 190px; }
+      .slide-note { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Merlin Agency home">
+      <span class="brand-main">MERLIN</span>
+      <span class="brand-sub">AGENCY</span>
+    </a>
+    <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="menu-panel" id="menuPanel" aria-label="Main menu">
+      <a href="#hero">Home</a>
+      <a href="#hero">Become an Official Host</a>
+      <a href="https://wa.me/918178949463" target="_blank" rel="noopener">Join Now</a>
+    </nav>
+  </header>
+
+  <div class="ticker" aria-label="Merlin Agency announcements">
+    <div class="ticker-track" aria-hidden="true">
+      <div class="ticker-copy">
+        <span>JOIN MERLIN AGENCY</span><b>•</b><span>BECOME AN OFFICIAL HOST</span><b>•</b><span>NO JOINING FEE</span><b>•</b><span>WORK FROM HOME</span><b>•</b><span>FLEXIBLE TIMINGS</span><b>•</b>
+      </div>
+      <div class="ticker-copy">
+        <span>JOIN MERLIN AGENCY</span><b>•</b><span>BECOME AN OFFICIAL HOST</span><b>•</b><span>NO JOINING FEE</span><b>•</b><span>WORK FROM HOME</span><b>•</b><span>FLEXIBLE TIMINGS</span><b>•</b>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero" id="hero" aria-label="Merlin Agency host recruitment">
+      <div class="slides" aria-hidden="true">
+        <div class="slide gala-one active" data-slide="0"></div>
+        <div class="slide gala-two" data-slide="1"></div>
+        <div class="slide gala-three" data-slide="2"></div>
+      </div>
+      <video class="hero-video" id="heroVideo" muted playsinline preload="metadata" aria-hidden="true">
+        <source src="assets/merlin-hero.mp4" type="video/mp4">
+      </video>
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <div class="eyebrow">Official Host Recruitment</div>
+        <h1>Build Your <span>Career</span></h1>
+        <p class="hero-brandline">Join Merlin Agency</p>
+        <p class="hero-description">Work From Home <span aria-hidden="true">•</span> Flexible Timings <span aria-hidden="true">•</span> No Joining Fee</p>
+        <a class="join-button" href="https://wa.me/918178949463" target="_blank" rel="noopener">
+          <span>✦</span> Join Now <span>✦</span>
+        </a>
+      </div>
+      <div class="slide-controls" aria-label="Slideshow controls">
+        <button class="slide-dot active" aria-label="Show slide 1" data-go="0"></button>
+        <button class="slide-dot" aria-label="Show slide 2" data-go="1"></button>
+        <button class="slide-dot" aria-label="Show slide 3" data-go="2"></button>
+        <button class="slide-dot" aria-label="Show video" data-go="3"></button>
+      </div>
+      <div class="slide-note">Merlin Agency · Official Host Recruitment</div>
+    </section>
+  </main>
+
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const menuPanel = document.getElementById('menuPanel');
+    menuButton.addEventListener('click', () => {
+      const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!expanded));
+      menuPanel.classList.toggle('open', !expanded);
+    });
+    menuPanel.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuPanel.classList.remove('open');
+    }));
+
+    const photoSlides = [...document.querySelectorAll('.slide')];
+    const dots = [...document.querySelectorAll('.slide-dot')];
+    const video = document.getElementById('heroVideo');
+    let sequenceIndex = 0;
+    let timer = null;
+    const sequence = ['photo0', 'photo1', 'photo2', 'video'];
+    function setActive(index) {
+      sequenceIndex = index;
+      photoSlides.forEach((slide, i) => slide.classList.toggle('active', sequence[index] === 'photo' + i));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+      if (sequence[index] === 'video') {
+        video.classList.add('active');
+        const playPromise = video.play();
+        if (playPromise && playPromise.catch) playPromise.catch(() => {
+          video.classList.remove('active');
+          photoSlides[0].classList.add('active');
+        });
+      } else {
+        video.pause();
+        video.classList.remove('active');
+      }
+    }
+    function advance() {
+      sequenceIndex = (sequenceIndex + 1) % sequence.length;
+      setActive(sequenceIndex);
+      scheduleNext();
+    }
+    function scheduleNext() {
+      clearTimeout(timer);
+      const current = sequence[sequenceIndex];
+      timer = setTimeout(advance, current === 'video' ? 8000 : 5000);
+    }
+    dots.forEach((dot, i) => dot.addEventListener('click', () => {
+      clearTimeout(timer);
+      setActive(i);
+      scheduleNext();
+    }));
+    video.addEventListener('ended', () => {
+      clearTimeout(timer);
+      advance();
+    });
+    video.addEventListener('error', () => {
+      if (sequence[sequenceIndex] === 'video') {
+        video.classList.remove('active');
+        photoSlides[0].classList.add('active');
+        sequenceIndex = 0;
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === 0));
+        scheduleNext();
+      }
+    });
+    scheduleNext();
+  </script>
+</body>
+</html>
