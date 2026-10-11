@@ -1,24 +1,15 @@
-MERLIN AGENCY — HEADER + HERO STARTER
+MERLIN AGENCY — HEADER + HERO
 
-Hero slideshow sequence is exactly 4 items:
-1. Uploaded video plays first (muted autoplay, then advances when finished).
-2. Photo slide 1.
-3. Photo slide 2.
-4. Photo slide 3.
-The sequence repeats. Hero text and Join Now button stay in place.
+Updated:
+- Premium, bold automotive-inspired hero typography
+- New hero headline: JOIN MERLIN AGENCY / BECOME AN OFFICIAL HOST
+- Uploaded H.264 MP4 is included and set as the first slide
+- After the video ends, three photo slides follow, then repeat
+- Compact silver MERLIN / gold AGENCY header, blue ticker, WhatsApp JOIN NOW button
 
-Included:
-- Compact silver-shine MERLIN / gold AGENCY header
-- Responsive hamburger menu
-- Blue scrolling marquee
-- Hero headline and gold-shine JOIN NOW WhatsApp button
-- Automatic 4-item background sequence
+Video details checked: H.264 video, 1280x720, approximately 10.7 seconds.
+If testing on GitHub Pages, upload/replace the complete ZIP contents and wait for Pages deployment. Open the site and allow a few seconds for the muted video to load. The video is expected to play first, then photos.
 
-WhatsApp:
-https://wa.me/918178949463
+WhatsApp: https://wa.me/918178949463
 
-IMPORTANT:
-The three photo backgrounds are temporary generic concert/event imagery from Unsplash, not verified BIGO LIVE GALA 2026 photos. Replace them with supplied/verified gala photos before publishing.
-
-Preview locally:
-Open index.html in a modern browser. For video playback, use a local web server or upload the whole folder to your hosting provider.
+The three photos are generic temporary event backgrounds, not verified BIGO LIVE GALA 2026 images.

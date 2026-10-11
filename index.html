@@ -246,12 +246,21 @@
     .eyebrow::before { content: "✦"; font-size: 13px; }
     .hero h1 {
       margin: 0;
-      font-size: clamp(43px, 8.3vw, 92px);
-      line-height: .94;
-      letter-spacing: -2.8px;
-      font-weight: 900;
+      font-size: clamp(42px, 8vw, 88px);
+      line-height: .91;
+      letter-spacing: -3.4px;
+      font-weight: 950;
       text-transform: uppercase;
-      text-shadow: 0 4px 30px rgba(0,0,0,.5);
+      text-shadow: 0 5px 34px rgba(0,0,0,.72);
+    }
+    .hero h1 .line-one {
+      display: block;
+      color: #f8f9fc;
+      font-size: .42em;
+      line-height: 1.2;
+      letter-spacing: clamp(3px, .7vw, 8px);
+      margin-bottom: 15px;
+      font-weight: 800;
     }
     .hero h1 span {
       display: block;
@@ -264,18 +273,21 @@
       filter: drop-shadow(0 0 16px rgba(214,166,64,.18));
     }
     .hero-brandline {
-      margin: 26px 0 0;
+      margin: 23px 0 0;
       color: #f8f9fb;
-      font-size: clamp(16px, 2.2vw, 23px);
-      font-weight: 700;
-      letter-spacing: .3px;
+      font-size: clamp(17px, 2.3vw, 24px);
+      font-weight: 650;
+      letter-spacing: .1px;
+      text-shadow: 0 2px 16px rgba(0,0,0,.7);
     }
     .hero-description {
-      margin: 13px auto 0;
+      margin: 12px auto 0;
       max-width: 640px;
-      color: rgba(246,248,252,.86);
+      color: rgba(246,248,252,.91);
       line-height: 1.7;
-      font-size: clamp(13px, 1.7vw, 17px);
+      font-size: clamp(12px, 1.55vw, 16px);
+      letter-spacing: .25px;
+      text-shadow: 0 2px 12px rgba(0,0,0,.8);
     }
     .join-button {
       margin-top: 31px;
@@ -341,7 +353,8 @@
       .hero { min-height: max(570px, calc(100svh - 122px)); }
       .hero-content { padding: 18px 0 70px; }
       .eyebrow { font-size: 9px; letter-spacing: 1.5px; margin-bottom: 22px; }
-      .hero h1 { letter-spacing: -1.5px; }
+      .hero h1 { letter-spacing: -1.7px; }
+      .hero h1 .line-one { letter-spacing: 3px; margin-bottom: 13px; }
       .hero-brandline { margin-top: 22px; }
       .hero-description { max-width: 330px; }
       .join-button { margin-top: 25px; min-height: 53px; min-width: 190px; }
@@ -386,14 +399,14 @@
         <div class="slide gala-two" data-slide="2"></div>
         <div class="slide gala-three" data-slide="3"></div>
       </div>
-      <video class="hero-video active" id="heroVideo" muted playsinline autoplay preload="auto" aria-hidden="true">
+      <video class="hero-video active" id="heroVideo" muted playsinline autoplay webkit-playsinline preload="auto" aria-label="Merlin Agency hero video">
         <source src="assets/merlin-hero.mp4" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
       <div class="hero-content">
-        <div class="eyebrow">Official Host Recruitment</div>
-        <h1>Build Your <span>Career</span></h1>
-        <p class="hero-brandline">Join Merlin Agency</p>
+        <div class="eyebrow">Your Voice. Your Stage.</div>
+        <h1><span class="line-one">JOIN MERLIN AGENCY</span>Become An <span>Official Host</span></h1>
+        <p class="hero-brandline">Turn Your Talent Into Opportunity.</p>
         <p class="hero-description">Work From Home <span aria-hidden="true">•</span> Flexible Timings <span aria-hidden="true">•</span> No Joining Fee</p>
         <a class="join-button" href="https://wa.me/918178949463" target="_blank" rel="noopener">
           <span>✦</span> Join Now <span>✦</span>
@@ -482,7 +495,16 @@
       }
     });
     video.addEventListener('loadedmetadata', () => {
-      if (sequenceIndex === 0) scheduleNext();
+      if (sequenceIndex === 0) {
+        clearTimeout(timer);
+        scheduleNext();
+      }
+    });
+    video.addEventListener('canplay', () => {
+      if (sequenceIndex === 0) {
+        const playPromise = video.play();
+        if (playPromise && playPromise.catch) playPromise.catch(() => {});
+      }
     });
     setActive(0);
     scheduleNext();
