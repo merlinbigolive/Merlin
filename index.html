@@ -45,15 +45,15 @@
       font-family: "Arial Black", Impact, sans-serif;
       font-style: italic;
       font-weight: 900;
-      font-size: clamp(34px, 5.3vw, 59px);
-      letter-spacing: -2.7px;
-      transform: skewX(-7deg);
+      font-size: clamp(36px, 5.7vw, 66px);
+      letter-spacing: -3.2px;
+      transform: skewX(-9deg);
       color: #f5f7fb;
-      background: linear-gradient(180deg, #ffffff 3%, #aab2bd 28%, #ffffff 43%, #7a828d 57%, #f8fbff 76%, #a7afb8 100%);
+      background: linear-gradient(180deg, #ffffff 2%, #d4d8df 20%, #ffffff 35%, #7b828c 52%, #f7f9fc 67%, #aab1ba 84%, #ffffff 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 1px 0 #525965);
+      filter: drop-shadow(0 2px 0 #525965) drop-shadow(0 0 5px rgba(255,255,255,.12));
       position: relative;
     }
     .brand-main::after {
@@ -73,11 +73,27 @@
       text-align: center;
       color: var(--gold);
       font-family: "Arial Black", Arial, sans-serif;
-      font-weight: 800;
-      letter-spacing: clamp(5px, 1.15vw, 10px);
-      font-size: clamp(11px, 1.7vw, 18px);
+      font-weight: 900;
+      letter-spacing: clamp(5px, 1.2vw, 10px);
+      font-size: clamp(12px, 1.85vw, 20px);
       padding-left: 8px;
       text-shadow: 0 0 12px rgba(222,174,75,.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(8px, 1.4vw, 17px);
+    }
+    .brand-sub::before,
+    .brand-sub::after {
+      content: "";
+      display: block;
+      width: clamp(24px, 5.5vw, 64px);
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #d6a744 22%, #ffe8a0 52%, #bd8425);
+      box-shadow: 0 0 5px rgba(222,174,75,.28);
+    }
+    .brand-sub::after {
+      background: linear-gradient(90deg, #bd8425, #ffe8a0 48%, #d6a744 78%, transparent);
     }
     .menu-button {
       width: 48px;
@@ -207,7 +223,8 @@
     .hero-content {
       width: min(100% - 32px, 920px);
       text-align: center;
-      padding: 60px 0 72px;
+      align-self: start;
+      padding: 26px 0 72px;
       animation: rise .9s ease both;
     }
     @keyframes rise { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
@@ -314,7 +331,7 @@
     }
     @media (max-width: 600px) {
       .site-header { height: 83px; padding: 10px 17px; }
-      .brand-main { font-size: 35px; letter-spacing: -1.7px; }
+      .brand-main { font-size: 37px; letter-spacing: -1.9px; }
       .brand-sub { font-size: 10px; letter-spacing: 5.2px; margin-top: 6px; padding-left: 5px; }
       .menu-button { width: 42px; }
       .menu-button span { width: 29px; height: 3px; }
@@ -322,7 +339,7 @@
       .ticker-copy { gap: 13px; padding-right: 13px; font-size: 11px; }
       .ticker-copy b { font-size: 14px; }
       .hero { min-height: max(570px, calc(100svh - 122px)); }
-      .hero-content { padding: 48px 0 70px; }
+      .hero-content { padding: 18px 0 70px; }
       .eyebrow { font-size: 9px; letter-spacing: 1.5px; margin-bottom: 22px; }
       .hero h1 { letter-spacing: -1.5px; }
       .hero-brandline { margin-top: 22px; }
@@ -365,11 +382,11 @@
   <main>
     <section class="hero" id="hero" aria-label="Merlin Agency host recruitment">
       <div class="slides" aria-hidden="true">
-        <div class="slide gala-one active" data-slide="0"></div>
-        <div class="slide gala-two" data-slide="1"></div>
-        <div class="slide gala-three" data-slide="2"></div>
+        <div class="slide gala-one" data-slide="1"></div>
+        <div class="slide gala-two" data-slide="2"></div>
+        <div class="slide gala-three" data-slide="3"></div>
       </div>
-      <video class="hero-video" id="heroVideo" muted playsinline preload="metadata" aria-hidden="true">
+      <video class="hero-video active" id="heroVideo" muted playsinline autoplay preload="auto" aria-hidden="true">
         <source src="assets/merlin-hero.mp4" type="video/mp4">
       </video>
       <div class="hero-shade"></div>
@@ -383,10 +400,10 @@
         </a>
       </div>
       <div class="slide-controls" aria-label="Slideshow controls">
-        <button class="slide-dot active" aria-label="Show slide 1" data-go="0"></button>
-        <button class="slide-dot" aria-label="Show slide 2" data-go="1"></button>
-        <button class="slide-dot" aria-label="Show slide 3" data-go="2"></button>
-        <button class="slide-dot" aria-label="Show video" data-go="3"></button>
+        <button class="slide-dot active" aria-label="Show video, slide 1" data-go="0"></button>
+        <button class="slide-dot" aria-label="Show photo 1, slide 2" data-go="1"></button>
+        <button class="slide-dot" aria-label="Show photo 2, slide 3" data-go="2"></button>
+        <button class="slide-dot" aria-label="Show photo 3, slide 4" data-go="3"></button>
       </div>
       <div class="slide-note">Merlin Agency · Official Host Recruitment</div>
     </section>
@@ -410,17 +427,18 @@
     const video = document.getElementById('heroVideo');
     let sequenceIndex = 0;
     let timer = null;
-    const sequence = ['photo0', 'photo1', 'photo2', 'video'];
+    // Exactly four slides: uploaded video first, followed by the three photo slides.
     function setActive(index) {
       sequenceIndex = index;
-      photoSlides.forEach((slide, i) => slide.classList.toggle('active', sequence[index] === 'photo' + i));
+      const isVideo = index === 0;
+      photoSlides.forEach((slide, i) => slide.classList.toggle('active', i === index - 1));
       dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-      if (sequence[index] === 'video') {
+      if (isVideo) {
         video.classList.add('active');
+        video.currentTime = 0;
         const playPromise = video.play();
         if (playPromise && playPromise.catch) playPromise.catch(() => {
-          video.classList.remove('active');
-          photoSlides[0].classList.add('active');
+          // If autoplay is blocked, the browser still shows the video poster/frame when possible.
         });
       } else {
         video.pause();
@@ -428,14 +446,21 @@
       }
     }
     function advance() {
-      sequenceIndex = (sequenceIndex + 1) % sequence.length;
+      sequenceIndex = (sequenceIndex + 1) % 4;
       setActive(sequenceIndex);
       scheduleNext();
     }
     function scheduleNext() {
       clearTimeout(timer);
-      const current = sequence[sequenceIndex];
-      timer = setTimeout(advance, current === 'video' ? 8000 : 5000);
+      if (sequenceIndex === 0) {
+        // Let the video finish naturally; fallback timer if duration metadata is unavailable.
+        const duration = Number.isFinite(video.duration) && video.duration > 0 ? video.duration * 1000 : 12000;
+        timer = setTimeout(() => {
+          if (sequenceIndex === 0) advance();
+        }, duration);
+      } else {
+        timer = setTimeout(advance, 5000);
+      }
     }
     dots.forEach((dot, i) => dot.addEventListener('click', () => {
       clearTimeout(timer);
@@ -443,18 +468,23 @@
       scheduleNext();
     }));
     video.addEventListener('ended', () => {
-      clearTimeout(timer);
-      advance();
+      if (sequenceIndex === 0) {
+        clearTimeout(timer);
+        advance();
+      }
     });
     video.addEventListener('error', () => {
-      if (sequence[sequenceIndex] === 'video') {
-        video.classList.remove('active');
-        photoSlides[0].classList.add('active');
-        sequenceIndex = 0;
-        dots.forEach((dot, i) => dot.classList.toggle('active', i === 0));
+      if (sequenceIndex === 0) {
+        clearTimeout(timer);
+        sequenceIndex = 1;
+        setActive(sequenceIndex);
         scheduleNext();
       }
     });
+    video.addEventListener('loadedmetadata', () => {
+      if (sequenceIndex === 0) scheduleNext();
+    });
+    setActive(0);
     scheduleNext();
   </script>
 </body>
