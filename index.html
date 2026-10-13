@@ -1,513 +1,139 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#030406">
-  <title>MERLIN AGENCY | Become an Official Host</title>
-  <meta name="description" content="Join Merlin Agency as an official host. Work from home, enjoy flexible timings, and apply with no joining fee.">
-  <style>
-    :root {
-      --black: #030406;
-      --silver: #edf2f8;
-      --gold: #d9ad51;
-      --blue: #0757df;
-      --blue2: #1478ff;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--black);
-      color: white;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-    }
-    button, a { font: inherit; }
-    .site-header {
-      position: relative;
-      z-index: 10;
-      height: 106px;
-      padding: 12px clamp(18px, 5vw, 76px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #030303;
-      border-bottom: 1px solid rgba(255,255,255,.12);
-    }
-    .brand {
-      display: inline-flex;
-      flex-direction: column;
-      text-decoration: none;
-      line-height: .88;
-      width: fit-content;
-    }
-    .brand-main {
-      font-family: "Arial Black", Impact, sans-serif;
-      font-style: italic;
-      font-weight: 900;
-      font-size: clamp(36px, 5.7vw, 66px);
-      letter-spacing: -3.2px;
-      transform: skewX(-9deg);
-      color: #f5f7fb;
-      background: linear-gradient(180deg, #ffffff 2%, #d4d8df 20%, #ffffff 35%, #7b828c 52%, #f7f9fc 67%, #aab1ba 84%, #ffffff 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 2px 0 #525965) drop-shadow(0 0 5px rgba(255,255,255,.12));
-      position: relative;
-    }
-    .brand-main::after {
-      content: "";
-      position: absolute;
-      width: 27%;
-      height: 2px;
-      left: 2%;
-      top: 13%;
-      background: #fff4c8;
-      box-shadow: 0 0 8px 2px rgba(255,196,79,.75);
-      transform: rotate(-13deg);
-      opacity: .9;
-    }
-    .brand-sub {
-      margin-top: 7px;
-      text-align: center;
-      color: var(--gold);
-      font-family: "Arial Black", Arial, sans-serif;
-      font-weight: 900;
-      letter-spacing: clamp(5px, 1.2vw, 10px);
-      font-size: clamp(12px, 1.85vw, 20px);
-      padding-left: 8px;
-      text-shadow: 0 0 12px rgba(222,174,75,.22);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: clamp(8px, 1.4vw, 17px);
-    }
-    .brand-sub::before,
-    .brand-sub::after {
-      content: "";
-      display: block;
-      width: clamp(24px, 5.5vw, 64px);
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #d6a744 22%, #ffe8a0 52%, #bd8425);
-      box-shadow: 0 0 5px rgba(222,174,75,.28);
-    }
-    .brand-sub::after {
-      background: linear-gradient(90deg, #bd8425, #ffe8a0 48%, #d6a744 78%, transparent);
-    }
-    .menu-button {
-      width: 48px;
-      height: 44px;
-      border: 0;
-      background: transparent;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 7px;
-      align-items: center;
-      cursor: pointer;
-      border-radius: 8px;
-    }
-    .menu-button span {
-      width: 35px;
-      height: 4px;
-      background: #f6f7fa;
-      border-radius: 1px;
-      transition: transform .25s, opacity .25s;
-    }
-    .menu-button[aria-expanded="true"] span:first-child { transform: translateY(11px) rotate(45deg); }
-    .menu-button[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-    .menu-button[aria-expanded="true"] span:last-child { transform: translateY(-11px) rotate(-45deg); }
-    .menu-panel {
-      display: none;
-      position: absolute;
-      top: 100%;
-      right: clamp(14px, 4vw, 60px);
-      min-width: 210px;
-      padding: 10px;
-      background: #090c12;
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 10px;
-      box-shadow: 0 18px 40px rgba(0,0,0,.45);
-    }
-    .menu-panel.open { display: grid; }
-    .menu-panel a {
-      color: #f5f6f8;
-      text-decoration: none;
-      padding: 12px 14px;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-    .menu-panel a:hover { background: #102e63; }
-    .ticker {
-      height: 48px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background: linear-gradient(100deg, #0643bd, #0869ff 52%, #0644bb);
-      border-bottom: 1px solid rgba(255,255,255,.16);
-      white-space: nowrap;
-    }
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      align-items: center;
-      animation: ticker 27s linear infinite;
-    }
-    .ticker:hover .ticker-track { animation-play-state: paused; }
-    .ticker-copy {
-      flex: none;
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      padding-right: 22px;
-      font-weight: 800;
-      font-size: clamp(12px, 1.45vw, 18px);
-      letter-spacing: .25px;
-    }
-    .ticker-copy b { font-size: 19px; color: #fff; }
-    @keyframes ticker { to { transform: translateX(-50%); } }
-
-    .hero {
-      min-height: min(740px, calc(100svh - 154px));
-      min-height: max(570px, min(740px, calc(100svh - 154px)));
-      position: relative;
-      isolation: isolate;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      background: #061020;
-    }
-    .slides, .slide, .hero-video, .hero-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .slides { z-index: -3; background: #061020; }
-    .slide {
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1.2s ease;
-      background-size: cover;
-      background-position: center;
-    }
-    .slide.active { opacity: 1; }
-    video.hero-video {
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1.2s ease;
-      background: #061020;
-    }
-    video.hero-video.active { opacity: 1; }
-    .slide.gala-one {
-      background-image:
-        radial-gradient(ellipse at 50% 34%, rgba(255,197,88,.42), transparent 18%),
-        radial-gradient(ellipse at 50% 75%, rgba(17,94,210,.5), transparent 43%),
-        linear-gradient(115deg, rgba(3,8,24,.1), rgba(3,8,24,.2)),
-        url("https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=2000&q=85");
-    }
-    .slide.gala-two {
-      background-image:
-        radial-gradient(ellipse at 50% 30%, rgba(232,184,88,.28), transparent 22%),
-        linear-gradient(90deg, rgba(2,6,17,.25), rgba(2,6,17,.05)),
-        url("https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=2000&q=85");
-    }
-    .slide.gala-three {
-      background-image:
-        radial-gradient(ellipse at 50% 35%, rgba(26,118,255,.28), transparent 28%),
-        linear-gradient(0deg, rgba(1,5,15,.25), rgba(1,5,15,.05)),
-        url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2000&q=85");
-    }
-    .hero-shade {
-      z-index: -1;
-      background:
-        linear-gradient(90deg, rgba(2,5,13,.76), rgba(2,5,13,.42) 50%, rgba(2,5,13,.72)),
-        linear-gradient(0deg, rgba(2,5,13,.7), transparent 52%, rgba(2,5,13,.24));
-    }
-    .hero-content {
-      width: min(100% - 32px, 920px);
-      text-align: center;
-      align-self: start;
-      padding: 26px 0 72px;
-      animation: rise .9s ease both;
-    }
-    @keyframes rise { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 9px 15px;
-      border: 1px solid rgba(222,177,89,.65);
-      background: rgba(5,10,20,.42);
-      color: #f3d28d;
-      border-radius: 999px;
-      font-size: 11px;
-      letter-spacing: 2.3px;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 23px;
-    }
-    .eyebrow::before { content: "✦"; font-size: 13px; }
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(42px, 8vw, 88px);
-      line-height: .91;
-      letter-spacing: -3.4px;
-      font-weight: 950;
-      text-transform: uppercase;
-      text-shadow: 0 5px 34px rgba(0,0,0,.72);
-    }
-    .hero h1 .line-one {
-      display: block;
-      color: #f8f9fc;
-      font-size: .42em;
-      line-height: 1.2;
-      letter-spacing: clamp(3px, .7vw, 8px);
-      margin-bottom: 15px;
-      font-weight: 800;
-    }
-    .hero h1 span {
-      display: block;
-      margin-top: 10px;
-      color: #f0c96f;
-      background: linear-gradient(100deg, #fff2c4 0%, #d8a644 28%, #fff1bd 50%, #c18a28 74%, #ffe9a4 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 16px rgba(214,166,64,.18));
-    }
-    .hero-brandline {
-      margin: 23px 0 0;
-      color: #f8f9fb;
-      font-size: clamp(17px, 2.3vw, 24px);
-      font-weight: 650;
-      letter-spacing: .1px;
-      text-shadow: 0 2px 16px rgba(0,0,0,.7);
-    }
-    .hero-description {
-      margin: 12px auto 0;
-      max-width: 640px;
-      color: rgba(246,248,252,.91);
-      line-height: 1.7;
-      font-size: clamp(12px, 1.55vw, 16px);
-      letter-spacing: .25px;
-      text-shadow: 0 2px 12px rgba(0,0,0,.8);
-    }
-    .join-button {
-      margin-top: 31px;
-      min-width: 208px;
-      min-height: 57px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 16px 27px;
-      color: #11100c;
-      background: linear-gradient(115deg, #f9e6a7, #c08b2e 34%, #ffe8a0 58%, #c08b2e 100%);
-      border: 1px solid #ffe6a0;
-      border-radius: 7px;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 14px;
-      letter-spacing: 1.15px;
-      font-weight: 900;
-      box-shadow: 0 0 28px rgba(218,168,62,.24), inset 0 1px 0 rgba(255,255,255,.75);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .join-button:hover { transform: translateY(-3px); box-shadow: 0 0 36px rgba(218,168,62,.42); }
-    .join-button span { font-size: 18px; }
-    .slide-controls {
-      position: absolute;
-      bottom: 20px;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 9px;
-    }
-    .slide-dot {
-      width: 8px;
-      height: 8px;
-      border: 1px solid rgba(255,255,255,.8);
-      border-radius: 50%;
-      padding: 0;
-      background: transparent;
-      cursor: pointer;
-    }
-    .slide-dot.active { width: 24px; border-radius: 8px; background: #e6bc61; border-color: #e6bc61; }
-    .slide-note {
-      position: absolute;
-      bottom: 17px;
-      right: 22px;
-      color: rgba(255,255,255,.66);
-      font-size: 10px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    @media (max-width: 600px) {
-      .site-header { height: 83px; padding: 10px 17px; }
-      .brand-main { font-size: 37px; letter-spacing: -1.9px; }
-      .brand-sub { font-size: 10px; letter-spacing: 5.2px; margin-top: 6px; padding-left: 5px; }
-      .menu-button { width: 42px; }
-      .menu-button span { width: 29px; height: 3px; }
-      .ticker { height: 39px; }
-      .ticker-copy { gap: 13px; padding-right: 13px; font-size: 11px; }
-      .ticker-copy b { font-size: 14px; }
-      .hero { min-height: max(570px, calc(100svh - 122px)); }
-      .hero-content { padding: 18px 0 70px; }
-      .eyebrow { font-size: 9px; letter-spacing: 1.5px; margin-bottom: 22px; }
-      .hero h1 { letter-spacing: -1.7px; }
-      .hero h1 .line-one { letter-spacing: 3px; margin-bottom: 13px; }
-      .hero-brandline { margin-top: 22px; }
-      .hero-description { max-width: 330px; }
-      .join-button { margin-top: 25px; min-height: 53px; min-width: 190px; }
-      .slide-note { display: none; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="Build your career with Merlin Agency. Explore host opportunities, work from home, flexible timings and no joining fee.">
+<title>Merlin Agency | Build Your Career</title>
+<style>
+:root{--gold:#e8c56d;--blue:#1249c8;--bg:#050505;--white:#f7f7f9}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif}
+a{color:inherit}
+.header{height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(18px,4vw,52px);background:#050505;position:relative;z-index:10;border-bottom:1px solid #171717}
+.brand{display:flex;flex-direction:column;text-decoration:none;line-height:.9}
+.brand-name{font-size:clamp(25px,3.6vw,32px);font-weight:900;font-style:italic;letter-spacing:-1.8px;background:linear-gradient(180deg,#fff 3%,#bfc5cc 24%,#fff 40%,#777f89 54%,#f7f8f9 68%,#aeb5bd 83%,#fff 100%);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1px 3px #b8c3d044)}
+.brand-agency{font-size:9px;letter-spacing:4.4px;font-weight:800;margin:6px 0 0 4px;background:linear-gradient(90deg,#9d7023,#ffe9a1 32%,#c18a28 57%,#fff0b4 73%,#a9771e);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 4px #e0b45155)}
+.menu-button{width:38px;height:38px;border:0;background:none;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer}
+.menu-button span{width:27px;height:3px;border-radius:3px;background:linear-gradient(90deg,#f0b45b,#fff,#d9b64f)}
+.marquee{height:38px;display:flex;align-items:center;overflow:hidden;white-space:nowrap;background:linear-gradient(90deg,#0b36a0,#1857df 50%,#0b36a0);border-top:1px solid #3272f5;border-bottom:1px solid #2c65da}
+.marquee-track{display:flex;width:max-content;animation:scrollText 30s linear infinite}
+.marquee-track span{font-size:13px;font-weight:800;letter-spacing:.45px;color:#fff;padding:0 17px}
+.marquee-track b{color:#f4d77f;padding-left:17px}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes scrollText{to{transform:translateX(-50%)}}
+.menu-panel{display:none;position:absolute;right:15px;top:62px;z-index:20;min-width:205px;padding:9px;background:#111;border:1px solid #5a4822;border-radius:10px;box-shadow:0 15px 35px #000b}
+.menu-panel.open{display:grid}
+.menu-panel a{padding:12px;text-decoration:none;font-size:14px;border-radius:6px}
+.menu-panel a:hover{background:#292316;color:var(--gold)}
+.hero{height:calc(100svh - 108px);min-height:620px;max-height:900px;position:relative;overflow:hidden;background:#05070d;isolation:isolate}
+.slides,.slide{position:absolute;inset:0}
+.slide{opacity:0;transition:opacity 1.15s ease;pointer-events:none}
+.slide.active{opacity:1}
+.slide img,.slide video{height:100%;width:100%;object-fit:cover;object-position:center}
+.slide:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.16) 34%,rgba(0,0,0,.36) 64%,rgba(0,0,0,.84));}
+.hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(45px,8vh,82px) 18px 82px}
+.kicker{font-size:clamp(10px,1.5vw,13px);font-weight:800;letter-spacing:3px;color:var(--gold);margin:0 0 16px;text-shadow:0 2px 12px #000}
+.hero h1{font-size:clamp(43px,8vw,88px);line-height:.9;font-weight:950;font-style:italic;letter-spacing:-2.8px;text-transform:uppercase;margin:0;max-width:900px;text-shadow:0 4px 20px #000}
+.hero h1 .gold{display:block;color:#f5d580;margin-top:8px;text-shadow:0 0 18px #f3c45b55,0 4px 18px #000}
+.hero-copy{font-size:clamp(14px,2.1vw,20px);font-weight:700;line-height:1.5;letter-spacing:.3px;margin:21px 0 0;max-width:690px;text-shadow:0 2px 12px #000}
+.join{position:relative;isolation:isolate;overflow:hidden;margin-top:27px;display:inline-flex;align-items:center;justify-content:center;min-width:184px;padding:15px 31px;border-radius:999px;text-decoration:none;color:#211704;font-weight:900;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;background:linear-gradient(110deg,#a57420,#f9df8d 22%,#c5922e 43%,#fff0b1 57%,#b17d22 78%,#f4d57c);border:1px solid #fff0b5;box-shadow:0 0 23px #e5b84770,0 8px 24px #0009;transition:transform .2s,box-shadow .2s}
+.join:before{content:"";position:absolute;z-index:-1;top:-60%;left:-45%;width:25%;height:220%;transform:rotate(25deg);background:linear-gradient(90deg,transparent,#fff9d7,transparent);animation:goldShine 3.5s ease-in-out infinite}
+.join:hover{transform:translateY(-2px);box-shadow:0 0 32px #efc85d9c}
+@keyframes goldShine{0%,42%{left:-45%}75%,100%{left:135%}}
+.dots{position:absolute;z-index:3;bottom:26px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.dot{height:4px;width:22px;border-radius:5px;background:#ffffff80;border:0;padding:0;cursor:pointer;transition:width .25s}
+.dot.active{width:40px;background:#fff}
+.slide-caption{position:absolute;z-index:3;bottom:13px;right:16px;color:#ffffffa6;font-size:9px;letter-spacing:2px}
+.about{padding:55px 20px 62px;text-align:center;background:linear-gradient(180deg,#090b11,#10131b)}
+.section-kicker{font-size:11px;letter-spacing:3px;color:var(--gold);font-weight:800}
+.about h2{font-size:clamp(27px,4.8vw,43px);margin:12px 0}
+.about p{max-width:650px;margin:0 auto;color:#c8cbd3;font-size:15px;line-height:1.75}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:900px;margin:28px auto 0}
+.benefit{padding:19px 12px;border:1px solid #ffffff18;border-radius:12px;background:#ffffff06}
+.benefit strong{display:block;color:var(--gold);font-size:14px;margin-bottom:8px}
+.benefit span{font-size:12px;line-height:1.5;color:#c8cbd2}
+footer{text-align:center;padding:22px 14px;background:#050505;color:#90939c;font-size:12px;border-top:1px solid #ffffff12}
+@media(max-width:600px){
+ .header{height:64px;padding:0 17px}
+ .brand-name{font-size:26px;letter-spacing:-1.4px}
+ .brand-agency{font-size:8px;letter-spacing:3.7px;margin-top:5px}
+ .marquee{height:36px}.marquee-track span{font-size:11px;padding:0 13px}.marquee-track b{padding-left:13px}
+ .hero{height:calc(100svh - 100px);min-height:600px;max-height:810px}
+ .hero-content{padding:clamp(48px,9vh,76px) 16px 78px}
+ .hero h1{font-size:clamp(42px,11.5vw,65px);letter-spacing:-1.8px}
+ .hero-copy{font-size:14px;max-width:345px;margin-top:18px}
+ .join{margin-top:23px;min-width:170px;padding:14px 27px;font-size:13px}
+ .benefits{grid-template-columns:1fr;max-width:360px}
+}
+@media(prefers-reduced-motion:reduce){.marquee-track,.join:before{animation:none}.slide{transition:none}}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="#" aria-label="Merlin Agency home">
-      <span class="brand-main">MERLIN</span>
-      <span class="brand-sub">AGENCY</span>
-    </a>
-    <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false" aria-controls="menuPanel">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="menu-panel" id="menuPanel" aria-label="Main menu">
-      <a href="#hero">Home</a>
-      <a href="#hero">Become an Official Host</a>
-      <a href="https://wa.me/918178949463" target="_blank" rel="noopener">Join Now</a>
-    </nav>
-  </header>
-
-  <div class="ticker" aria-label="Merlin Agency announcements">
-    <div class="ticker-track" aria-hidden="true">
-      <div class="ticker-copy">
-        <span>JOIN MERLIN AGENCY</span><b>•</b><span>BECOME AN OFFICIAL HOST</span><b>•</b><span>NO JOINING FEE</span><b>•</b><span>WORK FROM HOME</span><b>•</b><span>FLEXIBLE TIMINGS</span><b>•</b>
-      </div>
-      <div class="ticker-copy">
-        <span>JOIN MERLIN AGENCY</span><b>•</b><span>BECOME AN OFFICIAL HOST</span><b>•</b><span>NO JOINING FEE</span><b>•</b><span>WORK FROM HOME</span><b>•</b><span>FLEXIBLE TIMINGS</span><b>•</b>
-      </div>
-    </div>
-  </div>
-
-  <main>
-    <section class="hero" id="hero" aria-label="Merlin Agency host recruitment">
-      <div class="slides" aria-hidden="true">
-        <div class="slide gala-one" data-slide="1"></div>
-        <div class="slide gala-two" data-slide="2"></div>
-        <div class="slide gala-three" data-slide="3"></div>
-      </div>
-      <video class="hero-video active" id="heroVideo" muted playsinline autoplay webkit-playsinline preload="auto" aria-label="Merlin Agency hero video">
-        <source src="assets/merlin-hero.mp4" type="video/mp4">
-      </video>
-      <div class="hero-shade"></div>
-      <div class="hero-content">
-        <div class="eyebrow">Your Voice. Your Stage.</div>
-        <h1><span class="line-one">JOIN MERLIN AGENCY</span>Become An <span>Official Host</span></h1>
-        <p class="hero-brandline">Turn Your Talent Into Opportunity.</p>
-        <p class="hero-description">Work From Home <span aria-hidden="true">•</span> Flexible Timings <span aria-hidden="true">•</span> No Joining Fee</p>
-        <a class="join-button" href="https://wa.me/918178949463" target="_blank" rel="noopener">
-          <span>✦</span> Join Now <span>✦</span>
-        </a>
-      </div>
-      <div class="slide-controls" aria-label="Slideshow controls">
-        <button class="slide-dot active" aria-label="Show video, slide 1" data-go="0"></button>
-        <button class="slide-dot" aria-label="Show photo 1, slide 2" data-go="1"></button>
-        <button class="slide-dot" aria-label="Show photo 2, slide 3" data-go="2"></button>
-        <button class="slide-dot" aria-label="Show photo 3, slide 4" data-go="3"></button>
-      </div>
-      <div class="slide-note">Merlin Agency · Official Host Recruitment</div>
-    </section>
-  </main>
-
-  <script>
-    const menuButton = document.getElementById('menuButton');
-    const menuPanel = document.getElementById('menuPanel');
-    menuButton.addEventListener('click', () => {
-      const expanded = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', String(!expanded));
-      menuPanel.classList.toggle('open', !expanded);
-    });
-    menuPanel.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      menuButton.setAttribute('aria-expanded', 'false');
-      menuPanel.classList.remove('open');
-    }));
-
-    const photoSlides = [...document.querySelectorAll('.slide')];
-    const dots = [...document.querySelectorAll('.slide-dot')];
-    const video = document.getElementById('heroVideo');
-    let sequenceIndex = 0;
-    let timer = null;
-    // Exactly four slides: uploaded video first, followed by the three photo slides.
-    function setActive(index) {
-      sequenceIndex = index;
-      const isVideo = index === 0;
-      photoSlides.forEach((slide, i) => slide.classList.toggle('active', i === index - 1));
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-      if (isVideo) {
-        video.classList.add('active');
-        video.currentTime = 0;
-        const playPromise = video.play();
-        if (playPromise && playPromise.catch) playPromise.catch(() => {
-          // If autoplay is blocked, the browser still shows the video poster/frame when possible.
-        });
-      } else {
-        video.pause();
-        video.classList.remove('active');
-      }
-    }
-    function advance() {
-      sequenceIndex = (sequenceIndex + 1) % 4;
-      setActive(sequenceIndex);
-      scheduleNext();
-    }
-    function scheduleNext() {
-      clearTimeout(timer);
-      if (sequenceIndex === 0) {
-        // Let the video finish naturally; fallback timer if duration metadata is unavailable.
-        const duration = Number.isFinite(video.duration) && video.duration > 0 ? video.duration * 1000 : 12000;
-        timer = setTimeout(() => {
-          if (sequenceIndex === 0) advance();
-        }, duration);
-      } else {
-        timer = setTimeout(advance, 5000);
-      }
-    }
-    dots.forEach((dot, i) => dot.addEventListener('click', () => {
-      clearTimeout(timer);
-      setActive(i);
-      scheduleNext();
-    }));
-    video.addEventListener('ended', () => {
-      if (sequenceIndex === 0) {
-        clearTimeout(timer);
-        advance();
-      }
-    });
-    video.addEventListener('error', () => {
-      if (sequenceIndex === 0) {
-        clearTimeout(timer);
-        sequenceIndex = 1;
-        setActive(sequenceIndex);
-        scheduleNext();
-      }
-    });
-    video.addEventListener('loadedmetadata', () => {
-      if (sequenceIndex === 0) {
-        clearTimeout(timer);
-        scheduleNext();
-      }
-    });
-    video.addEventListener('canplay', () => {
-      if (sequenceIndex === 0) {
-        const playPromise = video.play();
-        if (playPromise && playPromise.catch) playPromise.catch(() => {});
-      }
-    });
-    setActive(0);
-    scheduleNext();
-  </script>
+<header class="header">
+ <a class="brand" href="#home" aria-label="Merlin Agency home"><span class="brand-name">MERLIN</span><span class="brand-agency">AGENCY</span></a>
+ <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+ <nav class="menu-panel" id="menuPanel"><a href="#home">Home</a><a href="#about">About Merlin Agency</a><a href="https://wa.me/918178949463" target="_blank" rel="noopener">Join on WhatsApp ↗</a></nav>
+</header>
+<div class="marquee" aria-label="Merlin Agency announcements"><div class="marquee-track">
+ <span>JOIN MERLIN AGENCY <b>•</b></span><span>BECOME AN OFFICIAL HOST <b>•</b></span><span>NO JOINING FEE <b>•</b></span><span>WORK FROM HOME <b>•</b></span><span>FLEXIBLE TIMINGS <b>•</b></span>
+ <span>JOIN MERLIN AGENCY <b>•</b></span><span>BECOME AN OFFICIAL HOST <b>•</b></span><span>NO JOINING FEE <b>•</b></span><span>WORK FROM HOME <b>•</b></span><span>FLEXIBLE TIMINGS <b>•</b></span>
+</div></div>
+<main>
+<section class="hero" id="home" aria-label="Merlin Agency hero slideshow">
+ <div class="slides">
+  <div class="slide active"><video src="assets/hero-video.mp4" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=85"></video></div>
+  <div class="slide"><img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1800&q=90" alt="Live event stage and dramatic lighting" loading="eager"></div>
+  <div class="slide"><img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1800&q=90" alt="Live entertainment event crowd" loading="lazy"></div>
+  <div class="slide"><video src="assets/hero-video.mp4" muted loop playsinline preload="none"></video></div>
+  <div class="slide"><img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1800&q=90" alt="Stage lights at a live show" loading="lazy"></div>
+  <div class="slide"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1800&q=90" alt="Concert stage lighting" loading="lazy"></div>
+ </div>
+ <div class="hero-content">
+  <p class="kicker">OFFICIAL HOST RECRUITMENT</p>
+  <h1>BUILD YOUR <span class="gold">CAREER</span></h1>
+  <p class="hero-copy">JOIN MERLIN AGENCY<br>WORK FROM HOME · FLEXIBLE TIMINGS · NO JOINING FEE</p>
+  <a class="join" href="https://wa.me/918178949463?text=Hello%20Merlin%20Agency%2C%20I%20am%20interested%20in%20joining%20as%20a%20host." target="_blank" rel="noopener">✦ Join Now ✦</a>
+ </div>
+ <div class="dots" aria-label="Choose slide">
+  <button class="dot active" aria-label="Slide 1"></button><button class="dot" aria-label="Slide 2"></button><button class="dot" aria-label="Slide 3"></button><button class="dot" aria-label="Slide 4"></button><button class="dot" aria-label="Slide 5"></button><button class="dot" aria-label="Slide 6"></button>
+ </div>
+ <div class="slide-caption">MERLIN AGENCY</div>
+</section>
+<section class="about" id="about">
+ <span class="section-kicker">YOUR NEXT CHAPTER STARTS HERE</span>
+ <h2>Build Your Career with Merlin Agency</h2>
+ <p>Take the next step in your creator journey. Contact Merlin Agency to learn about host opportunities, flexible timings and getting started from home.</p>
+ <div class="benefits">
+  <div class="benefit"><strong>Work From Home</strong><span>Start your journey from your own space.</span></div>
+  <div class="benefit"><strong>Flexible Timings</strong><span>Explore a schedule that works for you.</span></div>
+  <div class="benefit"><strong>No Joining Fee</strong><span>Talk with our team to learn about joining.</span></div>
+ </div>
+</section>
+</main>
+<footer>© <span id="year"></span> Merlin Agency. All rights reserved.</footer>
+<script>
+const slides=[...document.querySelectorAll('.slide')],dots=[...document.querySelectorAll('.dot')];
+let current=0,timer;
+const dwell=6500;
+function activate(i){
+ slides[current].classList.remove('active');dots[current].classList.remove('active');
+ const old=slides[current].querySelector('video');if(old)old.pause();
+ current=(i+slides.length)%slides.length;
+ slides[current].classList.add('active');dots[current].classList.add('active');
+ const v=slides[current].querySelector('video');
+ if(v){v.muted=true;try{v.currentTime=0;}catch(e){}const play=v.play();if(play&&play.catch)play.catch(()=>{});}
+ clearTimeout(timer);timer=setTimeout(()=>activate(current+1),dwell);
+}
+const first=slides[0].querySelector('video');if(first)first.play().catch(()=>{});
+timer=setTimeout(()=>activate(1),dwell);
+dots.forEach((d,i)=>d.addEventListener('click',()=>activate(i)));
+const mb=document.getElementById('menuButton'),mp=document.getElementById('menuPanel');
+mb.addEventListener('click',()=>{const opened=mp.classList.toggle('open');mb.setAttribute('aria-expanded',String(opened));});
+mp.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mp.classList.remove('open');mb.setAttribute('aria-expanded','false');}));
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>

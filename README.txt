@@ -1,15 +1,24 @@
-MERLIN AGENCY — HEADER + HERO
+MERLIN AGENCY WEBSITE
+=====================
 
-Updated:
-- Premium, bold automotive-inspired hero typography
-- New hero headline: JOIN MERLIN AGENCY / BECOME AN OFFICIAL HOST
-- Uploaded H.264 MP4 is included and set as the first slide
-- After the video ends, three photo slides follow, then repeat
-- Compact silver MERLIN / gold AGENCY header, blue ticker, WhatsApp JOIN NOW button
+Contents
+- index.html: responsive one-page website
+- assets/hero-video.mp4: video uploaded in this conversation
 
-Video details checked: H.264 video, 1280x720, approximately 10.7 seconds.
-If testing on GitHub Pages, upload/replace the complete ZIP contents and wait for Pages deployment. Open the site and allow a few seconds for the muted video to load. The video is expected to play first, then photos.
+Design/features
+- Compact black header
+- MERLIN in sharp silver/chrome shine style
+- AGENCY in sharp gold shine style
+- Blue scrolling marquee with white text
+- Hero slideshow sequence: video, photo, photo, video, photo, photo, then repeats
+- Text and golden-shine JOIN NOW button remain centered above the background
+- Join Now opens WhatsApp chat to +91 81789 49463
+- Responsive mobile and desktop layout
 
-WhatsApp: https://wa.me/918178949463
+Setup
+Upload index.html and the assets folder to your website host / GitHub Pages.
+Keep the assets folder beside index.html.
 
-The three photos are generic temporary event backgrounds, not verified BIGO LIVE GALA 2026 images.
+Important
+The photo slides currently use general live-event/concert images from Unsplash as placeholders. They are not verified official BIGO LIVE GALA 2026 photos. Replace those image URLs in index.html with official event photos you have permission to use.
+The included video is the video file available in this chat.
