@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.begrow.in/</loc>
+  </url>
+  <url>
+    <loc>https://www.begrow.in/apply.html</loc>
+  </url>
+  <url>
+    <loc>https://www.begrow.in/faq.html</loc>
+  </url>
+  <url>
+    <loc>https://www.begrow.in/brand-collaboration.html</loc>
+  </url>
+  <url>
+    <loc>https://www.begrow.in/brand-collaboration-booking.html</loc>
+  </url>
+  <url>
+    <loc>https://www.begrow.in/influencer-apply.html</loc>
+  </url>
+</urlset>
