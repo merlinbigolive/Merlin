@@ -1,24 +1,15 @@
-MERLIN AGENCY WEBSITE
-=====================
+GROWX — BIGO TALENT AGENCY WEBSITE
 
-Contents
-- index.html: responsive one-page website
-- assets/hero-video.mp4: video uploaded in this conversation
+Files:
+- index.html: responsive GrowX website, neon black/purple/cyan/pink theme
+- assets/hero-video.mp4: single looping hero background video
 
-Design/features
-- Compact black header
-- MERLIN in sharp silver/chrome shine style
-- AGENCY in sharp gold shine style
-- Blue scrolling marquee with white text
-- Hero slideshow sequence: video, photo, photo, video, photo, photo, then repeats
-- Text and golden-shine JOIN NOW button remain centered above the background
-- Join Now opens WhatsApp chat to +91 81789 49463
-- Responsive mobile and desktop layout
+Features:
+- Brand name: GrowX (no Merlin Agency branding)
+- SEO title preserved: Work From Home | High Earning | No Joining Fee
+- Single background video, autoplay/muted/loop/playsinline
+- Neon-gradient Join Now button links to WhatsApp: +91 8178949463
+- Mobile responsive layout and navigation menu
+- No external libraries required
 
-Setup
-Upload index.html and the assets folder to your website host / GitHub Pages.
-Keep the assets folder beside index.html.
-
-Important
-The photo slides currently use general live-event/concert images from Unsplash as placeholders. They are not verified official BIGO LIVE GALA 2026 photos. Replace those image URLs in index.html with official event photos you have permission to use.
-The included video is the video file available in this chat.
+Deploy: upload index.html and the complete assets folder to the root of your GitHub Pages repository.
