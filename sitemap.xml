@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- IMPORTANT: Replace YOUR-LIVE-DOMAIN with your actual deployed domain. -->
+  <url><loc>https://YOUR-LIVE-DOMAIN/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+</urlset>
